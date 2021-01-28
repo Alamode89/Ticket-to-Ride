@@ -1,8 +1,8 @@
  > As you complete each section you **must** remove the prompt text. Every *turnin* of this project includes points for formatting of this README so keep it clean and keep it up to date. 
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
-# \<Project title\>
- > Authors: \[Andre Amante](https://github.com/Alamode89)\ \[Ashley Kim](https://github.com/ashley-kim22)\ \[Liberty Locsin](https://github.com/libii)\ 
+# Ticket to Ride Simulator
+ > Authors: [Andre Amante](https://github.com/Alamode89) \<[Ashley Kim](https://github.com/ashley-kim22)>\ \<[Liberty Locsin](https://github.com/libii)>\ 
  
  > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list and decide which design patterns you will use to implement it. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
  
@@ -33,16 +33,13 @@
 >        * Points - For Each Player
 >        * Win and Loser at End Game
 
-
  > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
+ >        * Composite - 
+ >        * Decorative - 
  >   * Why you picked this pattern and what feature you will implement with it
  >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
  >   * Why the chosen design pattern will lead to a good solution to that problem
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
- >Composite Pattern
-
- >Decorator Pattern
->  
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
  > * Set up your GitHub project board as a Kanban board for the project. It should have columns that map roughly to 
