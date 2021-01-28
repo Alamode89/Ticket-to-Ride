@@ -20,7 +20,6 @@
 
 ## Project Description
  > Your project description should summarize the project you are proposing. Be sure to include
- > * Why is it important or interesting to you?
  > * Board games are fun programs with a lot of interaction. One needs to deconstruct rules and apply computer science concepts and patterns. There is potential for many added features to add to aiding in user experience. Also, it’s pretty lonely during covid and it would be nice to play our favorite board games with other people.
  > * What languages/tools/technologies do you plan to use? (This list may change over the course of the project)
  >   * Languages: C++
@@ -42,10 +41,9 @@
  >         * Points - For Each Player
  >         * Win and Loser at End Game
 
- > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >        * Composite - For the deck, there are two types of cards: a color card, and a wild card. With the wild card, the card can act as any other card and we can have it inhererit from a general card class. Also, if we have more maps and more rules then the destination notes can inherit old rules with different methods per game mode. 
- > Problems we might encounter is any specific changes to game play based on map or mode needs to be systematically accounted for. I believe a composite pattern with it's heirarchical nature will allow us to do this easily. Since the game itself are pieces (which are objects), when the pieces need to behave differently it would be easier to have the mode change by implementing different virtual functions such as placing a route. This allows for better organization in the code base.
- >        * Decorative - The decorative pattern provides more functionality to objects.  Due to the game having multiple objects such as cards, routes, and players for example, it can be hard to format the information that the user needs to see along with the algorithms that are needed in ordeto run the game. By serparating the algorithms and information,  it will lead to cleaner code as well as allow easier bug tracking in case there is an error somewhere. This pattern would output player details: score, routes, tickets. The board will have: score, number of cars left, and an algorithm to solve the longest path, and the number of routes left.
+>   * Composite - For the deck, there are two types of cards: a color card, and a wild card. With the wild card, the card can act as any other card and we can have it   inhererit from a general card class. Also, if we have more maps and more rules then the destination notes can inherit old rules with different methods per game mode. Problems we might encounter is any specific changes to game play based on map or mode needs to be systematically accounted for. I believe a composite pattern with it's heirarchical nature will allow us to do this easily. Since the game itself are pieces (which are objects), when the pieces need to behave differently it would be easier to have the mode change by implementing different virtual functions such as placing a route. This allows for better organization in the code base.
+
+ >   * Decorative - The decorative pattern provides more functionality to objects.  Due to the game having multiple objects such as cards, routes, and players for example, it can be hard to format the information that the user needs to see along with the algorithms that are needed in ordeto run the game. By serparating the algorithms and information,  it will lead to cleaner code as well as allow easier bug tracking in case there is an error somewhere. This pattern would output player details: score, routes, tickets. The board will have: score, number of cars left, and an algorithm to solve the longest path, and the number of routes left.
  >
  >
  >
