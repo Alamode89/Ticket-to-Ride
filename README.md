@@ -2,7 +2,10 @@
  > Prompt text is any lines beginning with "\>"
  > Replace anything between \<...\> with your project specifics and remove angle brackets. For example, you need to name your project and replace the header right below this line with that title (no angle brackets). 
 # Ticket to Ride Simulator
- > Authors: [Andre Amante](https://github.com/Alamode89) [Ashley Kim](https://github.com/ashley-kim22) [Liberty Locsin](https://github.com/libii)
+ > Authors: 
+ >  * [Andre Amante](https://github.com/Alamode89) 
+ >  * [Ashley Kim](https://github.com/ashley-kim22) 
+ >  * [Liberty Locsin](https://github.com/libii)
  
  > You will be forming a group of **THREE** students and working on an interesting project. A list of proposed project ideas that have been successful in previous quarters is given in the project specifications link on iLearn. You can select an idea from the list and decide which design patterns you will use to implement it. If you want to propose your own original idea, you will have to contact an instructor to discuss the project and obtain written permission before you submit your project proposal. Your project needs to implement two design patterns.The project work should be divided almost equally among team members and each member is expected to work on at least one design pattern (more than one partner may work on a pattern) and some of its test cases. You can of course help each other, but it needs to be clear who will be responsible for which patterns and for which features.
  
@@ -24,21 +27,28 @@
  >   * Tools: [SFML](https://www.sfml-dev.org/) - GUI Library
  > * What will be the input/output of your project?
  >     * Input: 
+ >        * Game State
+ >          * New Game
+ >          * Continue Save Game
  >        * Player Move
- >        * New Game
- >        * Save Game
+ >            * Pick Color and add Player Details
+ >            * Claiming Route
+ >            * Picking Card
+ >            * Picking a Ticket
+ >
  > 
  >     * Output: 
- >       * Game State - Possibly a Visual State of the Game
->        * Points - For Each Player
->        * Win and Loser at End Game
+ >       * Game State - Possibly a Visual State of the Game using SFML
+ >         * Points - For Each Player
+ >         * Win and Loser at End Game
 
  > * What are the two design patterns you will be using? For each design pattern you must explain in 4-5 sentences:
- >        * Composite - 
- >        * Decorative - 
- >   * Why you picked this pattern and what feature you will implement with it 
- >   * What problem you anticipate encountering when implementing your project that you will solve using the design pattern
- >   * Why the chosen design pattern will lead to a good solution to that problem
+ >        * Composite - For the deck, there are two types of cards: a color card, and a wild card. With the wild card, the card can act as any other card and we can have it inhererit from a general card class. Also, if we have more maps and more rules then the destination notes can inherit old rules with different methods per game mode. 
+ > Problems we might encounter is any specific changes to game play based on map or mode needs to be systematically accounted for. I believe a composite pattern with it's heirarchical nature will allow us to do this easily. Since the game itself are pieces (which are objects), when the pieces need to behave differently it would be easier to have the mode change by implementing different virtual functions such as placing a route. This allows for better organization in the code base.
+ >        * Decorative - The decorative pattern provides more functionality to objects.  Due to the game having multiple objects such as cards, routes, and players for example, it can be hard to format the information that the user needs to see along with the algorithms that are needed in ordeto run the game. By serparating the algorithms and information,  it will lead to cleaner code as well as allow easier bug tracking in case there is an error somewhere. This pattern would output player details: score, routes, tickets. The board will have: score, number of cars left, and an algorithm to solve the longest path, and the number of routes left.
+ >
+ >
+ >
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
