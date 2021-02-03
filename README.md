@@ -46,6 +46,7 @@
 
 * Decorative - The decorative pattern provides more functionality to objects.  Due to the game having multiple objects such as cards, routes, and players for example, it can be hard to format the information that the user needs to see along with the algorithms that are needed in order to run the game. By serparating the algorithms and information,  it will lead to cleaner code as well as allow easier bug tracking in case there is an error somewhere. This pattern would output player details: score, routes, tickets. The board will have: score, number of cars left, and an algorithm to solve the longest path, and the number of routes left.
 
+<!--
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. 
  > ## Phase II
  > In addition to completing the "Class Diagram" section below, you will need to 
@@ -83,4 +84,4 @@
  > Instructions on installing and running your application
  ## Testing
  > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+ -->
