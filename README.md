@@ -59,7 +59,7 @@ NordricCountriesMap: This class includes a map of Nordic Countries, as well as t
 
 **Composite Design Pattern**: The Composite Pattern (highlighted in green) is utilized for the two draw decks, tickets and train cards.
 
-Deck pattern is an abstract class that the TrainDeck and TicketDeck Inherits from
+Deck pattern is an abstract class that the TrainDeck and TicketDeck Inherits from.
 
 TrainDeck: The TrainDeck is a deck that contains TrainCard objects, which are dealt to the player. The cards are placed on the TrainRow, then dealt to the players at the beginning of the game. The ticket deck draws one card at a time for the player. Also, the player can shuffle the TrainDeck.
 
