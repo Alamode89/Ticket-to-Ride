@@ -49,21 +49,27 @@
 <!--
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. -->
  ## Phase II
-**Decorator Design Pattern**: The decorator design pattern (highlighted in red) is used in map selection to choose different maps to play on. 
+**OMT Class Diagram Description:**
+Game: Contains functions that decides the winner of the game as well as calculates score. Creates the Board using the Board class and Players using the Player class.
 
-Map: The abstract class that includes virtual functions like displayBoard() for the specific maps to use. 
+Board: Contains a player, two decks and a map. In the map is where we use our Decorator Pattern. The two decks inherit from the deck. This is better explained in the Composite Pattern section below. The board also can check the score of the players so everyone else can see each other’s score. A link to the rules of the game are also on the board.
+
+Player: Can take their turn with 3 options: draw TrainCards, claim a route, or draw Tickets. The player also possesses a hand of cards and hand of tickets which are hidden. The player draws train cards from the trainRow or the TrainDeck. Also, the player can interface with the map to claim a route. After this, the player updates their score. Has train pieces that decrease in quantity whenever a player places/claims a route. When a player draws Tickets, they get 3 tickets in their hand and can remove 1-2 if they choose. If a player does not complete a ticket, they lose points at the end of the game.
+
+**Decorator Design Pattern:** The decorator design pattern (highlighted in red) is used in map selection to choose different maps to play on. 
+
+Map: The abstract class that includes virtual functions like displayBoard() for the specific maps to use. Maps also can contain City objects.
 
 USMap: This class includes a map of the United States, as well as the implementation of the virtual functions. 
 
 NordricCountriesMap: This class includes a map of Nordic Countries, as well as the implementation of the virtual functions. This map had different cities and different routes so the drawMap(): function will be enabled differently. Also, the claimRoute() function is almost similar to the USMap class except we must add one more card for routes with tunnels. This data pattern seems appropriate because Nordic Countries Map is similar to USMap but with one extra rule.
 
-**Composite Design Pattern**: The Composite Pattern (highlighted in green) is utilized for the two draw decks, tickets and train cards.
+**Composite Design Pattern:** The Composite Pattern (highlighted in green and blue) is utilized for the two draw decks, tickets and train cards.
 
-Deck pattern is an abstract class that the TrainDeck and TicketDeck Inherits from.
-
+Deck pattern is an abstract class that the TrainDeck and TicketDeck Inherits from
 TrainDeck: The TrainDeck is a deck that contains TrainCard objects, which are dealt to the player. The cards are placed on the TrainRow, then dealt to the players at the beginning of the game. The ticket deck draws one card at a time for the player. Also, the player can shuffle the TrainDeck.
-
 TicketDeck: The TicketDeck contains TrainCard objects which the players may choose to draw upon their turn. The players draw three cards at a time. Each ticket possesses two destinations and each card has its own point values. The players may choose to keep between one to all three of the cards they draw however, if they choose to only keep one of their cards the remaining cards are placed in the discard pile.
+
 
 
 <!-- 
