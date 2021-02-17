@@ -52,13 +52,17 @@
 **Decorator Design Pattern**: The decorator design pattern (highlighted in red) is used in map selection to choose different maps to play on. 
 
 Map: The abstract class that includes virtual functions like displayBoard() for the specific maps to use. 
+
 USMap: This class includes a map of the United States, as well as the implementation of the virtual functions. 
-NodricCountriesMap: This class includes a map of Nordic Countries, as well as the implementation of the virtual functions. This map had different cities and different routes so the drawMap(): function will be enabled differently. Also, the claimRoute() function is almost similar to the USMap class except we must add one more card for routes with tunnels. This data pattern seems appropriate because Nordic Countries Map is similar to USMap but with one extra rule.
+
+NordricCountriesMap: This class includes a map of Nordic Countries, as well as the implementation of the virtual functions. This map had different cities and different routes so the drawMap(): function will be enabled differently. Also, the claimRoute() function is almost similar to the USMap class except we must add one more card for routes with tunnels. This data pattern seems appropriate because Nordic Countries Map is similar to USMap but with one extra rule.
 
 **Composite Design Pattern**: The Composite Pattern (highlighted in green) is utilized for the two draw decks, tickets and train cards.
 
 Deck pattern is an abstract class that the TrainDeck and TicketDeck Inherits from
+
 TrainDeck: The TrainDeck is a deck that contains TrainCard objects, which are dealt to the player. The cards are placed on the TrainRow, then dealt to the players at the beginning of the game. The ticket deck draws one card at a time for the player. Also, the player can shuffle the TrainDeck.
+
 TicketDeck: The TicketDeck contains TrainCard objects which the players may choose to draw upon their turn. The players draw three cards at a time. Each ticket possesses two destinations and each card has its own point values. The players may choose to keep between one to all three of the cards they draw however, if they choose to only keep one of their cards the remaining cards are placed in the discard pile.
 
 
