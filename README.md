@@ -40,7 +40,7 @@
         * Game State - Possibly a Visual State of the Game using SFML
             * Points - For Each Player
             * Win and Loser at End Game
- ## Phase II
+ ## Phase I
 #### Design Patterns
 * Composite - For the deck, there are two types of cards: a color card, and a wild card. With the wild card, the card can act as any other card and we can have it   inhererit from a general card class. Also, if we have more maps and more rules then the destination notes can inherit old rules with different methods per game mode. Problems we might encounter is any specific changes to game play based on map or mode needs to be systematically accounted for. I believe a composite pattern with it's heirarchical nature will allow us to do this easily. Since the game itself are pieces (which are objects), when the pieces need to behave differently it would be easier to have the mode change by implementing different virtual functions such as placing a route. This allows for better organization in the code base.
 
