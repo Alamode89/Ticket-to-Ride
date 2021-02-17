@@ -50,6 +50,7 @@
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. -->
  ## Phase II
 **OMT Class Diagram Description:**
+
 Game: Contains functions that decides the winner of the game as well as calculates score. Creates the Board using the Board class and Players using the Player class.
 
 Board: Contains a player, two decks and a map. In the map is where we use our Decorator Pattern. The two decks inherit from the deck. This is better explained in the Composite Pattern section below. The board also can check the score of the players so everyone else can see each other’s score. A link to the rules of the game are also on the board.
