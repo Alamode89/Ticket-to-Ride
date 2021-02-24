@@ -13,7 +13,8 @@ class TicketDeck : Deck {
 
     void createDeck() {
 
-
+        //hardcode each card with their individual point values and 2 destinations (A and B)
+	//use for loops to populate vector of ticket cards
     }
 
     void draw() {
