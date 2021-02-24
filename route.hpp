@@ -19,7 +19,7 @@ class Route {
     int pathOne=0;
     int pathTwo=0;
 
-    Player *playerPath1 = nullptr;
+    Player *playerPath1 = nullptr;git 
     Player *playerPath2 = nullptr;
 
   Route(City* startCity, City* endCity, int trainCards, string color){
@@ -40,7 +40,7 @@ class Route {
     pathTwo=2;
   }
 
-  // void setClaim(Player aPlayer){
+  void setClaim(Player aPlayer){
   //   if(path <= 0){
   //      //throw error - occupied
   //   }else{
@@ -71,7 +71,7 @@ class Route {
 
 
   //   }
-  // }
+   }
 
   bool isOccupiedOne(){
     return pathOne==0;

@@ -4,6 +4,7 @@
 #include "deck.hpp"
 #include "train_deck.hpp"
 #include "ticket_deck.hpp"
+#include "map.hpp"
 
 
 using namespace std;

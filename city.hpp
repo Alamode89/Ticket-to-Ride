@@ -11,7 +11,7 @@ class City {
   //City Name
   public: 
    string destinationName;
-   Route myRoutes[];
+   vector <Route*> myRoutes;
 
   City(string name){
     destinationName=name;
@@ -27,8 +27,8 @@ class City {
     for(int i=0; i < myRoutes.size(); i++)
       myRoutes.clear();
   
-  void addRoute(City* endCity, City* endCity, string color, int trainCards, int pathArray){
-    
+  void addRoute(Route * tempRoute){
+      myRoutes.push_back(tempRoute);
   }
     
   }
