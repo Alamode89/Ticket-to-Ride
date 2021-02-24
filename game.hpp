@@ -2,7 +2,7 @@
 #define __GAME_HPP__
 
 #include "board.hpp"
-#include "players.hpp"
+#include "player.hpp"
 #include "board.hpp"
 #include <vector>
 
