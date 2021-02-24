@@ -16,6 +16,7 @@ void virtual makeRoutes();
 bool virtual isOccupied();
 Route virtual getRoute();
 void virtual claimRoute();
+void virtual resetMap();
 
 };
 

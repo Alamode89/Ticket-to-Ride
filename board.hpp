@@ -2,9 +2,10 @@
 #define __BOARD_HPP__
 
 #include "deck.hpp"
-#include "train_deck.hpp"
-#include "ticket_deck.hpp"
+#include "trainDeck.hpp"
+#include "ticketDeck.hpp"
 #include "map.hpp"
+#include "us_map.hpp"
 
 
 using namespace std;
@@ -16,7 +17,7 @@ class Board {
     TicketDeck theTicketDeck;
     TicketDeck discardTicket;
 
-    Map myMap;
+    Map* myMap;
 
   void virtual displayBoard(){
         //
@@ -26,22 +27,15 @@ class Board {
     //pick map
 
     //US Map for Now
-
-
-    
-    
-    drawMap();
+    myMap = new USMap();
 
 
   }
 
-  void drawMap(){
-    //cout << "drawMap()" << endl;
-    //draw gui
-  }
 
   void clearBoard(){
-        //reset board
+      //reset board
+     // myMap.resetMap();
 
   }
 };
