@@ -6,10 +6,8 @@
 
 using namespace std;
 
-class MAP {
-  //image
-  string imagePath="";
-  vector<City> destinations;
+class Map {
+
 
 };
 

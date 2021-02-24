@@ -2,16 +2,36 @@
 #define __CITY_HPP__
 
 #include <string>
+#include "route.hpp"
 
 using namespace std;
 
 class City {
-  //image
   //int nodeNumber?
   //City Name
   public: 
    string destinationName;
+   Route myRoutes[];
 
+  City(string name){
+    destinationName=name;
+  }
+
+  City (string name, Route whatever[] ){
+    destinationName=name;
+    myRoutes=cityRoutes;
+  }
+
+
+  ~City(){
+    for(int i=0; i < myRoutes.size(); i++)
+      myRoutes.clear();
+  
+  void addRoute(City* endCity, City* endCity, string color, int trainCards, int pathArray){
+    
+  }
+    
+  }
 
 
 };
