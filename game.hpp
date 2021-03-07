@@ -3,7 +3,6 @@
 
 #include "board.hpp"
 #include "player.hpp"
-#include "board.hpp"
 #include <vector>
 
 using namespace std;
@@ -22,10 +21,6 @@ class Game {
 
       //create new board
 
-  }
-
-  int calculateScoreGame(Board theBoard){
-    return -1;
   }
 
   int calculateScorePlayer(Player myPlayer){

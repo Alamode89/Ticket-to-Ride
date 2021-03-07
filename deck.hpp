@@ -12,6 +12,6 @@ class Deck {
 		virtual void shuffle()=0;
 		virtual void addCard()=0;
 		virtual void sort()=0;
-		virtual void addDiscard(Deck &discard);
+		virtual void addDiscard(Deck &discard)=0;
 };
 #endif //__DECK_HPP__

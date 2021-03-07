@@ -3,13 +3,15 @@
 
 #include <iostream>
 #include <string>
+#include "trainDeck.hpp"
+#include "ticketDeck.hpp"
 
 #include <SFML/Graphics.hpp>
 
 class Player { //does not inherit from the game - please change - Liberty
     private:
-				//TicketDeck myTickets;
-				//TrainCard myHand;
+				TicketDeck myTickets;
+				TrainCard myHand;
 			int myCars;
 			int myScore;
 			std::string myColor;
