@@ -8,12 +8,22 @@
 
 using namespace std;
 
-class TrainDeck : Deck {
+class TrainDeck {
 
-    vector<TrainCard> trainDeck;
+    TrainDeck() {
+	maxCards = 96;
+	numCards = 0;
+	tCards = new vector<TrainCard>(96);
+	createDeck();
+    }
     
     void createDeck() {
 
+	for(int i = 0; i < 12; ++i) {
+	    
+	    TrainCard card(TrainCard::Color.[i]);
+	    tCards->push_back(card);
+	}
 
     }
     
@@ -27,8 +37,9 @@ class TrainDeck : Deck {
 
     }
 
-    void addCard() {
-
+    void addCard(TrainCard& addingCard) {
+	
+	tCards->push_back(addingCard);
 
     }
 

@@ -11,7 +11,11 @@ public:
 
     string DestinationA;
     string DestinationB;
+    int value;
 
+    void ticket() {
+        
+    }
     string getDestinationA() {
    
 
