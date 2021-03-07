@@ -7,8 +7,8 @@ class Deck {
     private:
 	//may add later
     public:
-	virtual void draw();
-	virtual void shuffle();
-	virtual void discardDeck();
+		virtual void draw();
+		virtual void shuffle();
+	//virtual void discardDeck();
 };
 #endif //__DECK_HPP__
