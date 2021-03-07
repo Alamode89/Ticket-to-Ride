@@ -1,15 +1,23 @@
-#ifndef __TICKET_DECK_HPP__
-#define __TICKET_DECK_HPP__
+#ifndef __TICKETDECK_HPP__ //no _ inbetween Ticket and Deck - Liberty
+#define __TICKETDECK_HPP__
 
-#define "deck.hpp"
-#define "tickets.hpp"
+#include "deck.hpp"
+#include "tickets.hpp"
 #include <vector>
 
 using namespace std;
 
-class TicketDeck : Deck {
+class TicketDeck : public Deck {
+    public:
+        vector<Tickets> ticketDeck;
+    
+    TicketDeck(){
 
-    vector<Tickets> ticketDeck;
+    };
+
+    ~TicketDeck(){
+
+    };
 
     void createDeck() {
 
@@ -36,10 +44,13 @@ class TicketDeck : Deck {
 
     }
 
-    void addDiscard(Deck discard) {
-
-
+    void addDiscard(Deck &discard) {
+        //adds cards from discard deck into the deck and updates old discard deck
+        //pop out all discard cards ... push them back into this deck
+        
+        //HIGHLY unlikely to happen in the ticket deck
     }
+
 };
 
-#endif //__TICKET_DECK_HPP__
+#endif //__TICKETDECK_HPP__

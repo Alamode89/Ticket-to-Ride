@@ -1,5 +1,5 @@
-#ifndef __TRAIN_ROW_HPP__
-#define __TRAIN_ROW_HPP__
+#ifndef __TRAINROW_HPP__
+#define __TRAINROW_HPP__
 
 #include <vector>
 
@@ -18,4 +18,4 @@ public:
 
 };
 
-#endif //__TRAIN_ROW_HPP__
+#endif //__TRAINROW_HPP__

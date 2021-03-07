@@ -1,5 +1,5 @@
-#ifndef __TRAIN_DECK_HPP__
-#define __TRAIN_DECK_HPP__
+#ifndef __TRAINDECK_HPP__ //train deck no need _
+#define __TRAINDECK_HPP__ //train deck no need _
 
 #include "deck.hpp"
 #include "trainCard.hpp"
@@ -37,10 +37,11 @@ class TrainDeck : Deck {
 
     }
 
-    void addDiscard(Deck discard) {
-
+    void addDiscard(Deck &discard) {
+        //adds cards from discard deck into the deck and updates old discard deck
+        //pop out all discard cards ... push them back into this deck
 
     }
 };
 
-#endif //__TRAIN_DECK_HPP__
+#endif //__TRAINDECK_HPP__
