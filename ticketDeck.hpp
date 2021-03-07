@@ -1,8 +1,8 @@
 #ifndef __TICKET_DECK_HPP__
 #define __TICKET_DECK_HPP__
 
-#define "deck.hpp"
-#define "tickets.hpp"
+#include "deck.hpp"
+#include "tickets.hpp"
 #include <vector>
 
 using namespace std;

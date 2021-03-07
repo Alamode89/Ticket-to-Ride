@@ -39,7 +39,7 @@ class TrainDeck {
 
     void addCard(TrainCard& addingCard) {
 	
-	tCards->puch_back(addingCard);
+	tCards->push_back(addingCard);
 
     }
 
