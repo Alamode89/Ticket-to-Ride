@@ -6,7 +6,7 @@
 #include "ticketDeck.hpp"
 #include "map.hpp"
 #include "us_map.hpp"
-#include "nordic_map.hpp"
+//#include "nordic_map.hpp"
 
 using namespace std;
 
