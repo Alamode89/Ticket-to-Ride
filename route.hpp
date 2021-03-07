@@ -1,6 +1,7 @@
 #ifndef __ROUTE_HPP__
 #define __ROUTE_HPP__
 
+class City;
 #include <vector>
 #include "city.hpp"
 #include "player.hpp"
@@ -16,20 +17,32 @@ class Route {
     string color2=""; 
 
     int requiredTrains=0;
+
     int pathOne=0;
     int pathTwo=0;
 
-    Player *playerPath1 = nullptr;git 
+    int xPos1=0;
+    int yPos1=0;
+
+    int xPos2=0;
+    int yPos2=0;
+
+    Player *playerPath1 = nullptr;
     Player *playerPath2 = nullptr;
 
-  Route(City* startCity, City* endCity, int trainCards, string color){
+  Route(City* startCity, City* endCity, int trainCards, string color, int xCoord, int yCoord){
     destinationA=startCity;
     destinationB=endCity;
+    
     color1=color;
+
     pathOne=1;
+
+    xPos1=xCoord;
+    yPos1=yCoord;
   }
 
-  Route(City* startCity, City* endCity, int trainCards, string colorA, string colorB){
+  Route(City* startCity, City* endCity, int trainCards, string colorA, string colorB, int xCoord1, int yCoord1, int xCoord2, int yCoord2){
     destinationA=startCity;
     destinationB=endCity;
 
@@ -37,9 +50,16 @@ class Route {
     color2=colorB;
 
     pathOne=1;
-    pathTwo=2;
+    pathTwo=1;
+
+    xPos1=xCoord1;
+    yPos1=yCoord1;
+
+    xPos2=xCoord2;
+    yPos2=yCoord2;
   }
 
+//To Do: Delete?
   void setClaim(Player aPlayer){
   //   if(path <= 0){
   //      //throw error - occupied
@@ -72,17 +92,59 @@ class Route {
 
   //   }
    }
+  bool checkRoute(string A, string B){
+    bool isThisMyRoute=0;
+      
+
+    return isThisMyRoute;
+  }
 
   bool isOccupiedOne(){
-    return pathOne==0;
+    if(pathOne==0)
+      return true;
+
+    return false;
   }
 
   bool isOccupiedTwo(){
-    return pathTwo==0;
+    if(pathTwo==0)
+      return true;
+
+    return false;
   }
 
   bool isOccupied(){
-    return ( isOccupiedOne() && isOccupiedTwo());
+    if( isOccupiedOne() && isOccupiedTwo())
+      return true;
+    
+    return false;
+  }
+
+  City* getCity1(){
+    return destinationA;
+  }
+
+  City* getCity2(){
+    return destinationB;
+  }
+
+  string getColor1(){
+    return color1;
+  }
+
+  string getColor2(){
+    return color2;
+  }
+
+  void claimPath(Player * thePlayer, int pathNumber){
+    if(pathNumber==1){
+      playerPath1=thePlayer;
+      pathOne=0;
+    }else if (pathNumber==1){
+      playerPath2=thePlayer;
+      pathTwo=0;
+    }
+
   }
 
 };

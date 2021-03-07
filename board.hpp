@@ -6,7 +6,7 @@
 #include "ticketDeck.hpp"
 #include "map.hpp"
 #include "us_map.hpp"
-
+#include "nordic_map.hpp"
 
 using namespace std;
 
@@ -20,22 +20,56 @@ class Board {
     Map* myMap;
 
   void virtual displayBoard(){
-        //
-      }
+    // hmm maybe not
+  }
 
-  void createMap(int chooseMap){
-    //pick map
+  void createBoard(int chooseMap){
 
-    //US Map for Now
-    myMap = new USMap();
+    //US Map for Now - stub
+    modeUS();
+
+
+    //To Do US Versus Nordic Countries
 
 
   }
 
+  void modeUS(){
+    //create US Map
+    myMap = new USMap();
+
+
+    //create US Train Deck
+
+
+
+    //create US Ticket Deck
+  }
+
+
+
+  void modeNordic(){
+    //create Nordic Map
+      //myMap = new NordicMap();
+
+
+    //create Nordic Train Deck
+
+
+
+    //create Nordic Ticket Deck
+  }
+
 
   void clearBoard(){
-      //reset board
-     // myMap.resetMap();
+    //reset board
+    // myMap.resetMap();
+
+    //theTrainDeck.resetDeck()
+    //theTicketDeck.resetDeck();
+
+    //discardDeck.resetDeck();
+    //discardTicket.resetDeck();
 
   }
 };
