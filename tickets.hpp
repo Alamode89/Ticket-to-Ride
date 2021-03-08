@@ -13,9 +13,15 @@ public:
     string DestinationB;
     int value;
 
-    void ticket() {
-        
+    Tickets(string destA, string destB, int val) {
+        DestinationA = destA;
+        DestinationB = destB;
+        value = val;
     }
+
+    ~Tickets() {}
+
+
     string getDestinationA() {
    
 

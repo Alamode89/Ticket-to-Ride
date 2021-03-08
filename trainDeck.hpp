@@ -10,19 +10,54 @@ using namespace std;
 
 class TrainDeck {
 
-    TrainDeck() {
-	maxCards = 96;
-	numCards = 0;
-	tCards = new vector<TrainCard>(96);
-	createDeck();
-    }
+public:
+    vector<TrainCard> trainDeck;
+
+    TrainDeck() {}
+
+    //To Do: Disconstructor
     
     void createDeck() {
+    //wild cards = grey
+    //colors all lowercase
+    //TrainCard temp("purple");
+
+    //trainDeck.push_back(TrainCard("purple"));
 
 	for(int i = 0; i < 12; ++i) {
-	    
-	    TrainCard card(TrainCard::Color.[i]);
-	    tCards->push_back(card);
+        trainDeck.push_back(TrainCard("red"));   
+	}
+
+    for(int j = 0; j < 12; ++j) {
+        trainDeck.push_back(TrainCard("orange"));   
+	}
+
+    for(int k = 0; k < 12; ++k) {
+        trainDeck.push_back(TrainCard("yellow"));   
+	}
+
+    for(int a = 0; a < 12; ++a) {
+        trainDeck.push_back(TrainCard("green"));   
+	}
+
+    for(int b = 0; b < 12; ++b) {
+        trainDeck.push_back(TrainCard("blue"));   
+	}
+
+    for(int c = 0; c < 12; ++c) {
+        trainDeck.push_back(TrainCard("purple"));   
+	}
+
+    for(int d = 0; d < 12; ++d) {
+        trainDeck.push_back(TrainCard("black"));   
+	}
+
+    for(int e = 0; e < 12; ++e) {
+        trainDeck.push_back(TrainCard("white"));   
+	}
+
+    for(int f = 0; f < 12; ++f) {
+        trainDeck.push_back(TrainCard("grey"));   
 	}
 
     }
@@ -39,7 +74,7 @@ class TrainDeck {
 
     void addCard(TrainCard& addingCard) {
 	
-	tCards->push_back(addingCard);
+	//tCards->push_back(addingCard);
 
     }
 

@@ -11,9 +11,7 @@ class TicketDeck : public Deck {
     public:
         vector<Tickets> ticketDeck;
     
-    TicketDeck(){
-
-    };
+    TicketDeck(){};
 
     ~TicketDeck(){
 
@@ -23,6 +21,8 @@ class TicketDeck : public Deck {
 
         //hardcode each card with their individual point values and 2 destinations (A and B)
 	//use for loops to populate vector of ticket cards
+    
+    
     }
 
     void draw() {

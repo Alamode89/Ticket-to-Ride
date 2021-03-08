@@ -5,32 +5,48 @@
 
 using namespace std;
 
-class TrainCard {
+class TrainCard {    
 
-private:
+    public: 
+    string colorName;
 
-    Color us_cardColor;
+    TrainCard() {
 
-public: 
-    
-    enum class Color{ RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, BLACK, WHITE };
-
-    TrainCard::TrainCard(Color color) {
-
-	this->us_cardColor = color;
     }
 
-    TrainCard::~Card(){}
+    TrainCard(string color) {
+        colorName = color;
 
-    TrainCard::Color TrainCard::GetColor() {
-
-	return us_cardColor;
     }
 
-    void TrainCard::SetColor(Color color) {
+        //To Do: deconstructor
 
-	this->us_cardColor = color;
+    ~TrainCard() {}
+
+    std::string getColorName() {
+        return colorName;
     }
+        
+        /*
+        enum class Color{ RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, BLACK, WHITE };
+
+        TrainCard::TrainCard(Color color) {
+
+        this->us_cardColor = color;
+        }
+
+        TrainCard::~Card(){}
+
+        TrainCard::Color TrainCard::GetColor() {
+
+        return us_cardColor;
+        }
+
+        void TrainCard::SetColor(Color color) {
+
+        this->us_cardColor = color;
+        }
+        */
 
 };
 
