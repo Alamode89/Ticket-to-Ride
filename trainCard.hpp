@@ -1,5 +1,5 @@
-#ifndef __TRAIN_CARD_HPP__
-#define __TRAIN_CARD_HPP__
+#ifndef __TRAINCARD_HPP__
+#define __TRAINCARD_HPP__
 
 #include <string>
 
@@ -8,9 +8,21 @@ using namespace std;
 class TrainCard {
 
 public: 
+
+    std::string colorName="";
+
+    TrainCard(std::string color) {
+        std::string colorName = color;
+    }
+    ~TrainCard() {
+
+    }
+
+    std::string getColorName() {
+        return colorName;
+    }
     
-    string cardColor;
 
 };
 
-#endif //__TRAIN_CARD_HPP__
+#endif //__TRAINCARD_HPP__

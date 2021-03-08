@@ -7,19 +7,35 @@ using namespace std;
 
 class Tickets {
 
-public:
+    public:
+        string DestinationA;
+        string DestinationB;
+        int value;
+        
+    Tickets(){
+ 
+    }
+    ~Tickets(){
+        
+    }
 
-    string DestinationA;
-    string DestinationB;
 
     string getDestinationA() {
-   
-
+        //stub
+        string temp = "Vancouver";
+        return temp;
     }
 
     string getDestinationB() {
+        //stub
+        string temp = "Seattle";
+        return temp;
+    }
 
+    int getValue(){
 
+        //stub
+        return 10;
     }
 
 };

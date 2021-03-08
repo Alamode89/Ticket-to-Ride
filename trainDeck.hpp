@@ -12,6 +12,20 @@ class TrainDeck : Deck {
 
     vector<TrainCard> trainDeck;
     
+    TrainDeck() {}
+    ~TrainDeck() {}
+    
+    void createDeck() {
+    //wild cards = grey
+    //colors all lowercase
+
+    trainDeck.push_back(TrainCard("purple"));
+
+	//for(int i = 0; i < 12; ++i) {   
+	//}
+
+    }
+
     void createDeck() {
 
 
