@@ -6,7 +6,7 @@
 #include "trainDeck.hpp"
 #include "ticketDeck.hpp"
 
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 
 class Player { //does not inherit from the game - please change - Liberty
     private:
@@ -19,7 +19,7 @@ class Player { //does not inherit from the game - please change - Liberty
 		
 
     public:
-			sf::Texture myTexture; //please add this for now - Liberty
+			//sf::Texture myTexture; //please add this for now - Liberty
 	Player() 
 	{
 	    //  myCars = 0;
@@ -31,15 +31,15 @@ class Player { //does not inherit from the game - please change - Liberty
 
 	
 	//possible contructor for GUI - per Liberty
-	Player(std::string myName, std::string color, sf::Texture &texture) 
-	{
-	    //  myCars = 0;
-	    //  myScore = 0;
-        name = myName;
-	      myColor = color;
-				myTexture = texture;
-	     //need to implement ticketdeck and traincard
-	} //constructor still needs implementation
+	// Player(std::string myName, std::string color, sf::Texture &texture) 
+	// {
+	//     //  myCars = 0;
+	//     //  myScore = 0;
+  //       name = myName;
+	//       myColor = color;
+	// 			myTexture = texture;
+	//      //need to implement ticketdeck and traincard
+	// } //constructor still needs implementation
 
 
 	void takeTurn() 

@@ -1,5 +1,5 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 
 #include "player.hpp" //- tried to make it slightly stable
 #include "tickets.hpp" // ok
@@ -46,16 +46,16 @@ int main(){
   aTestRow.showTrainRow();
 
  
-  // City* myCityA = new City("Vancouver");
-  // City* myCityB = new City("Seattle");
+  City* myCityA = new City("Vancouver");
+  City* myCityB = new City("Seattle");
   
-  // Tickets myTicket; //- ok
-  // TrainCard myCard; //- ok
-  // Route *myRoute = new Route(myCityA, myCityB, 1, "grey", "grey", 96, 131, 121, 130);
+  Tickets myTicket; //- ok
+  TrainCard myCard; //- ok
+  Route *myRoute = new Route(myCityA, myCityB, 1, "grey", "grey", 96, 131, 121, 130);
   
-  // Board myBoard; //ok - without Decks - broken with decks
-  // Game theGame; //ok- without Decks - broken with decks
-  // Player bob; //- ok - had to adjust it it - kinda got stub to work
+  Board myBoard;
+  Game theGame;
+  Player bob;
 
 
 

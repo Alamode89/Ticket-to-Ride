@@ -199,23 +199,23 @@ class USMap : public Map{
 
   // }
 
-  sf::Sprite claimRouteGraphic(Player *thePlayer, string myCityA, string myCityB, string myColor){
-      cout << "Claim Route Graphic" << endl;
-      claimRoute(thePlayer, myCityA, myCityB, myColor);
-      sf::Sprite temp;
+  // sf::Sprite claimRouteGraphic(Player *thePlayer, string myCityA, string myCityB, string myColor){
+  //     cout << "Claim Route Graphic" << endl;
+  //     claimRoute(thePlayer, myCityA, myCityB, myColor);
+  //     sf::Sprite temp;
 
-      //set texture
-      temp.setTexture(thePlayer->myTexture);
+  //     //set texture
+  //     temp.setTexture(thePlayer->myTexture);
 
-      //set scale and position
+  //     //set scale and position
 
-         // sf::Vector2f myPosition( findPathX(myCityA, myCityB, myColor)/1.0, findPathY(myCityA, myCityB, myColor)/1.0);
-      temp.setScale(sf::Vector2f(0.044f, 0.054f)); // absolute scale factory
-      sf::Vector2f myPosition(findPathX(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().x * temp.getScale().x)/2.0, findPathY(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().y * temp.getScale().y)/2.0);
-      temp.setPosition(myPosition);
+  //        // sf::Vector2f myPosition( findPathX(myCityA, myCityB, myColor)/1.0, findPathY(myCityA, myCityB, myColor)/1.0);
+  //     temp.setScale(sf::Vector2f(0.044f, 0.054f)); // absolute scale factory
+  //     sf::Vector2f myPosition(findPathX(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().x * temp.getScale().x)/2.0, findPathY(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().y * temp.getScale().y)/2.0);
+  //     temp.setPosition(myPosition);
 
-      return temp;
-  }
+  //     return temp;
+  // }
 
   void claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
     cout << "Claim Route" << endl;
