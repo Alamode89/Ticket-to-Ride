@@ -8,16 +8,18 @@ using namespace std;
 class Tickets {
 
     public:
-        string DestinationA;
-        string DestinationB;
-        int value;
-        
-    Tickets(){
- 
+
+    string DestinationA;
+    string DestinationB;
+    int value;
+
+    Tickets(string destA, string destB, int val) {
+        DestinationA = destA;
+        DestinationB = destB;
+        value = val;
     }
-    ~Tickets(){
-        
-    }
+
+    ~Tickets() {}
 
 
     string getDestinationA() {
