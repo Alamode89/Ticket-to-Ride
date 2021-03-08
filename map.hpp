@@ -9,13 +9,13 @@ using namespace std;
 
 class Map {
 
-//void virtual addCities();
+  void virtual addCities()=0;
+  void virtual addRoutes()=0;
 
-// void virtual makeRoutes();
-// bool virtual isOccupied();
-// Route virtual getRoute();
-// void virtual claimRoute();
-// void virtual resetMap();
+  bool virtual isOccupied(string startA, string startB, string color)=0;
+  // Route* virtual getRoute(string startCity, string endCity, string color)=null;
+  void virtual claimRoute(Player *thePlayer, string myCityA, string myCityB, string color)=0;
+  void virtual resetMap()=0;
 
 
 };

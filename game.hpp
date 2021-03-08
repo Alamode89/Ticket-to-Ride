@@ -23,6 +23,16 @@ class Game {
 
   }
 
+  void playGame(){
+
+  }
+
+  void resetGame(){
+    theBoard.clearBoard(); //To Do: Clear Board
+    thePlayers.clear();
+    newGame();
+  }
+
   int calculateScorePlayer(Player myPlayer){
     return -1;
   }

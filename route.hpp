@@ -40,6 +40,8 @@ class Route {
 
     xPos1=xCoord;
     yPos1=yCoord;
+
+    requiredTrains=trainCards;
   }
 
   Route(City* startCity, City* endCity, int trainCards, string colorA, string colorB, int xCoord1, int yCoord1, int xCoord2, int yCoord2){
@@ -57,6 +59,8 @@ class Route {
 
     xPos2=xCoord2;
     yPos2=yCoord2;
+
+    requiredTrains=trainCards;
   }
 
 //To Do: Delete?
