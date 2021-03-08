@@ -1,5 +1,5 @@
-#ifndef __TRAIN_CARD_HPP__
-#define __TRAIN_CARD_HPP__
+#ifndef __TRAINCARD_HPP__
+#define __TRAINCARD_HPP__
 
 #include <string>
 
@@ -48,6 +48,7 @@ class TrainCard {
         }
         */
 
+
 };
 
-#endif //__TRAIN_CARD_HPP__
+#endif //__TRAINCARD_HPP__

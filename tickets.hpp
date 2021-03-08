@@ -7,11 +7,15 @@ using namespace std;
 
 class Tickets {
 
-public:
+    public:
 
     string DestinationA;
     string DestinationB;
     int value;
+
+    Tickets() {
+
+    }
 
     Tickets(string destA, string destB, int val) {
         DestinationA = destA;
@@ -23,13 +27,21 @@ public:
 
 
     string getDestinationA() {
-   
-
+        //stub
+        string temp = "Vancouver";
+        return temp;
     }
 
     string getDestinationB() {
+        //stub
+        string temp = "Seattle";
+        return temp;
+    }
 
+    int getValue(){
 
+        //stub
+        return 10;
     }
 
 };
