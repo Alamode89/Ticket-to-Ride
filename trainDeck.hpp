@@ -9,6 +9,9 @@
 using namespace std;
 
 class TrainDeck {
+	
+    public:
+	vector<TrainCard>ticketDeck;
 
 public:
     vector<TrainCard> trainDeck;
@@ -23,6 +26,7 @@ public:
     //TrainCard temp("purple");
 
     //trainDeck.push_back(TrainCard("purple"));
+
 
 	for(int i = 0; i < 12; ++i) {
         trainDeck.push_back(TrainCard("red"));   
