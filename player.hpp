@@ -6,7 +6,7 @@
 #include "trainDeck.hpp"
 #include "ticketDeck.hpp"
 
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 
 class Player { //does not inherit from the game - please change - Liberty
     private:

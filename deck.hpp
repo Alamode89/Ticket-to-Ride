@@ -8,7 +8,6 @@ class Deck {
 			//may add later
     public:
 		virtual void createDeck()=0;
-		virtual void draw()=0;
 		virtual void shuffle()=0;
 		virtual void addCard()=0;
 		virtual void sort()=0;

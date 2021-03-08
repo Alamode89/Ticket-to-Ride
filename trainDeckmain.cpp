@@ -26,6 +26,7 @@ int main(int argc, char *argv[]) {
 
     //pointers
     cout << deck.trainDeck.size() << endl;
+    deck.shuffle(deck.trainDeck);
     cout << deck.trainDeck[0].getColorName() << endl;
     cout << deck.trainDeck[0].colorName << endl;
     cout << deck.trainDeck.size() << endl;

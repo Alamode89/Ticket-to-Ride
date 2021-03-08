@@ -13,6 +13,8 @@ public:
     string DestinationB;
     int value;
 
+    Tickets() {};
+
     Tickets(string destA, string destB, int val) {
         DestinationA = destA;
         DestinationB = destB;

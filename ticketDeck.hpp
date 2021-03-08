@@ -4,6 +4,9 @@
 #include "deck.hpp"
 #include "tickets.hpp"
 #include <vector>
+#include <algorithm>
+#include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -17,7 +20,7 @@ class TicketDeck : public Deck {
 
     void createDeck() {
 
-        //hardcode each card with their individual point values and 2 destinations (A and B)
+    //hardcode each card with their individual point values and 2 destinations (A and B)
 	//use for loops to populate vector of ticket cards
 
 	ticketDeck.push_back(Tickets("Denver", "El Paso", 4));
@@ -53,13 +56,15 @@ class TicketDeck : public Deck {
 
     }
 
-    void draw() {
-
-
+	Tickets drawTicket(){
+        Tickets temp;
+        temp = ticketDeck.back();
+        ticketDeck.pop_back();
+        return temp;
     }
 
-    void shuffle() {
-
+    void shuffle(vector<Tickets> &ticketDeck) {
+		random_shuffle(ticketDeck.begin(),ticketDeck.end());
 
     }
 
@@ -78,6 +83,8 @@ class TicketDeck : public Deck {
         //pop out all discard cards ... push them back into this deck
         
         //HIGHLY unlikely to happen in the ticket deck
+
+
     }
 
 };

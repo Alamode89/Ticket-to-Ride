@@ -5,20 +5,22 @@
 #include "trainCard.hpp"
 #include "trainRow.hpp"
 #include <vector>
+#include <iostream>
+#include <cstdlib>
+#include <algorithm>
 
 using namespace std;
 
-class TrainDeck {
+class TrainDeck : public Deck {
 	
     public:
-	vector<TrainCard>ticketDeck;
 
-public:
     vector<TrainCard> trainDeck;
 
-    TrainDeck() {}
+    TrainDeck() {};
 
     //To Do: Disconstructor
+    ~TrainDeck() {};
     
     void createDeck() {
     //wild cards = grey
@@ -60,21 +62,26 @@ public:
         trainDeck.push_back(TrainCard("white"));   
 	}
 
-    for(int f = 0; f < 12; ++f) {
+    for(int f = 0; f < 14; ++f) {
         trainDeck.push_back(TrainCard("grey"));   
 	}
 
     }
+
+    TrainCard drawTrainCard(){
+        TrainCard temp;
+        temp = trainDeck.back();
+        trainDeck.pop_back();
+        return temp;
+    }
+
     
-    void draw() {
+    void shuffle(vector<TrainCard> &trainDeck) {
 
-
-    }
-
-    void shuffle() {
-
+        random_shuffle(trainDeck.begin(), trainDeck.end());
 
     }
+    
 
     void addCard(TrainCard& addingCard) {
 	
@@ -90,6 +97,8 @@ public:
     void addDiscard(Deck &discard) {
         //adds cards from discard deck into the deck and updates old discard deck
         //pop out all discard cards ... push them back into this deck
+
+
 
     }
 };

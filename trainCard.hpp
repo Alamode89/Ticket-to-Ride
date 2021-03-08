@@ -1,5 +1,5 @@
-#ifndef __TRAIN_CARD_HPP__
-#define __TRAIN_CARD_HPP__
+#ifndef __TRAINCARD_HPP__
+#define __TRAINCARD_HPP__
 
 #include <string>
 
@@ -19,35 +19,12 @@ class TrainCard {
 
     }
 
-        //To Do: deconstructor
-
     ~TrainCard() {}
 
     std::string getColorName() {
         return colorName;
     }
         
-        /*
-        enum class Color{ RED, ORANGE, YELLOW, GREEN, BLUE, PURPLE, BLACK, WHITE };
-
-        TrainCard::TrainCard(Color color) {
-
-        this->us_cardColor = color;
-        }
-
-        TrainCard::~Card(){}
-
-        TrainCard::Color TrainCard::GetColor() {
-
-        return us_cardColor;
-        }
-
-        void TrainCard::SetColor(Color color) {
-
-        this->us_cardColor = color;
-        }
-        */
-
 };
 
-#endif //__TRAIN_CARD_HPP__
+#endif //__TRAINCARD_HPP__
