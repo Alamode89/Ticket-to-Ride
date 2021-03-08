@@ -1,20 +1,11 @@
 #include <iostream>
-#include <SFML/Graphics.hpp>
 
-#include "player.hpp" //- tried to make it slightly stable
-#include "tickets.hpp" // ok
+
+
 #include "trainCard.hpp" //ok
 #include "trainDeck.hpp" //- broken
-#include "ticketDeck.hpp" //- broken
 #include "trainRow.hpp" //
-#include "us_map.hpp"
-#include "map.hpp"
-#include "route.hpp" //ok
-#include "city.hpp" //ok
-#include "board.hpp"
 
-
-#include "game.hpp"
 
 using namespace std;
 

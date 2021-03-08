@@ -12,9 +12,7 @@ class TrainDeck {
 public:
     vector<TrainCard> trainDeck;
     
-    TrainDeck() {
-        createDeck();
-    }
+    TrainDeck() {}
 
     ~TrainDeck() {}
 
@@ -64,9 +62,12 @@ public:
 
     }
     
-    void draw() {
-
-
+    void display(vector<TrainCard> &displayTrainDeck) const {
+	    for(int i = 0; i < displayTrainDeck.size(); i++) {
+		    TrainCard temp = displayTrainDeck.at(i);
+            cout << "Train Card " << i + 1 << endl;
+            cout << temp.getColorName() << endl;
+	    }
     }
 
     TrainCard drawTrainCard(){

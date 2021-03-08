@@ -5,7 +5,7 @@
 #include "trainDeck.hpp"
 #include "ticketDeck.hpp"
 #include "map.hpp"
-#include "us_map.hpp"
+//#include "us_map.hpp"
 //#include "nordic_map.hpp"
 
 using namespace std;
@@ -20,10 +20,10 @@ class Board {
     Map* myMap;
 
 
-  void createBoard(int chooseMap){
+  void createBoard(int chooseMap, vector<Player> &playerList){
     //To Do US Versus Nordic Countries
     if(chooseMap == 1)
-      modeUS();
+      modeUS(playerList);
     // if(chooseMap == 2)
     //   modeNordic();
 
@@ -32,16 +32,19 @@ class Board {
 
   }
 
-  void modeUS(){
+  void modeUS(vector<Player> &playerList){
     //create US Map
     myMap = new USMap();
 
     //TrainDeck deckA;
+    theTrainDeck.createDeck();
+    theTrainDeck.shuffle();
+    theTicketDeck.createDeck();
+    theTicketDeck.shuffle();
 
-
-
-
-    //create US Ticket Deck
+    for(int i = 0; i < playerList.size() - 1; i++) {
+      playerList.at(i).populateHand(theTrainDeck, theTicketDeck);
+    }
   }
 
 

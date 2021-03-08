@@ -232,7 +232,7 @@ class USMap : public Map{
 
       }else{
 
-        if( index==-1)
+        if(index==-1)
         {
           //throw error - no route
         }else{

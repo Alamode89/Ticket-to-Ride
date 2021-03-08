@@ -9,7 +9,7 @@ using namespace std;
 
 class TicketDeck : public Deck {
     public:
-        vector<Tickets> ticketDeck;
+    vector<Tickets> ticketDeck;
     
     TicketDeck(){};
 
@@ -53,9 +53,11 @@ class TicketDeck : public Deck {
 
     }
 
-    void draw() {
-
-
+    void display(vector<Tickets> displayTicketDeck) const {
+	    for(int i = 0; i < displayTicketDeck.size(); i++) {
+            cout << "Ticket " << i + 1 << endl;
+		    cout << displayTicketDeck.at(i).getDestinationA() << " " << displayTicketDeck.at(i).getDestinationB() << endl ;
+	    }
     }
 
     void shuffle() {
