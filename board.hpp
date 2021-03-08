@@ -54,7 +54,6 @@ class Board {
     //create Nordic Train Deck
 
 
-
     //create Nordic Ticket Deck
   }
 

@@ -3,36 +3,20 @@
 
 #include "deck.hpp"
 #include "trainCard.hpp"
-#include "trainRow.hpp"
 #include <vector>
 
 using namespace std;
 
 class TrainDeck {
-	
-    public:
-	vector<TrainCard>ticketDeck;
 
 public:
     vector<TrainCard> trainDeck;
-
-    TrainDeck() {}
-
-    //To Do: Disconstructor
     
-    TrainDeck() {}
-    ~TrainDeck() {}
-    
-    void createDeck() {
-    //wild cards = grey
-    //colors all lowercase
-
-    trainDeck.push_back(TrainCard("purple"));
-
-	//for(int i = 0; i < 12; ++i) {   
-	//}
-
+    TrainDeck() {
+        createDeck();
     }
+
+    ~TrainDeck() {}
 
     void createDeck() {
     //wild cards = grey
@@ -85,6 +69,13 @@ public:
 
     }
 
+    TrainCard drawTrainCard(){
+        TrainCard temp;
+        temp = trainDeck.back();
+        trainDeck.pop_back();
+        return temp;
+    }
+
     void shuffle() {
 
 
@@ -93,6 +84,7 @@ public:
     void addCard(TrainCard& addingCard) {
 	
 	//tCards->push_back(addingCard);
+    trainDeck.push_back(addingCard);
 
     }
 
