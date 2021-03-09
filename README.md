@@ -44,7 +44,7 @@
 #### Design Patterns
 * Composite - For the deck, there are two types of cards: a color card, and a wild card. With the wild card, the card can act as any other card and we can have it   inhererit from a general card class. Also, if we have more maps and more rules then the destination notes can inherit old rules with different methods per game mode. Problems we might encounter is any specific changes to game play based on map or mode needs to be systematically accounted for. I believe a composite pattern with it's heirarchical nature will allow us to do this easily. Since the game itself are pieces (which are objects), when the pieces need to behave differently it would be easier to have the mode change by implementing different virtual functions such as placing a route. This allows for better organization in the code base.
 
-* Decorative - The decorative pattern provides more functionality to objects.  Due to the game having multiple objects such as cards, routes, and players for example, it can be hard to format the information that the user needs to see along with the algorithms that are needed in order to run the game. By serparating the algorithms and information,  it will lead to cleaner code as well as allow easier bug tracking in case there is an error somewhere. This pattern would output player details: score, routes, tickets. The board will have: score, number of cars left, and an algorithm to solve the longest path, and the number of routes left.
+* Factory- The factory pattern provides allows to make object on runtime.  Due to the game having multiple objects such as cards, routes, and players for example, it can be hard switch between the map with different rule, card, routes, tickets and parts. By serparating the modes and calling it by function, it will lead to cleaner code as well as allow easier bug tracking in case there is an error somewhere. This pattern will allow for the board to act as a factory that polulates the correct maps, cards and rules to it based on the user picking the mode.
 
 <!--
  > * This description should be in enough detail that the TA/instructor can determine the complexity of the project and if it is sufficient for the team members to complete in the time allotted. -->
@@ -57,7 +57,8 @@ Board: Contains a player, two decks and a map. In the map is where we use our De
 
 Player: Can take their turn with 3 options: draw TrainCards, claim a route, or draw Tickets. The player also possesses a hand of cards and hand of tickets which are hidden. The player draws train cards from the trainRow or the TrainDeck. Also, the player can interface with the map to claim a route. After this, the player updates their score. Has train pieces that decrease in quantity whenever a player places/claims a route. When a player draws Tickets, they get 3 tickets in their hand and can remove 1-2 if they choose. If a player does not complete a ticket, they lose points at the end of the game.
 
-**Decorator Design Pattern:** The decorator design pattern (highlighted in red) is used in map selection to choose different maps to play on. 
+**Factory Design Pattern:** The decorator design pattern (highlighted in red) is used in map selection to choose different maps to play on. 
+Board: Acts as a factory to popular the deck, tickets, and map. Maps have different behaviors to each other as well. The map itself it rather big. So, it is a good idea to make it when the chooser choses the correct map.
 
 Map: The abstract class that includes virtual functions like displayBoard() for the specific maps to use. Maps also can contain City objects.
 
