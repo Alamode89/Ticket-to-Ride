@@ -6,7 +6,7 @@
 #include "map.hpp"
 #include "route.hpp"
 #include "player.hpp"
-#include <SFML/Graphics.hpp>
+//#include <SFML/Graphics.hpp>
 
 using namespace std;
 
@@ -19,27 +19,13 @@ class USMap : public Map{
 
   USMap(){
       addCities();
-      makeRoutes();
+      addRoutes();
       drawMap();
-
   }
 
   ~USMap(){
-    //delete cities
-    //for loop delete all cities object pointer
-    for(int i=0; i < destinations.size(); ++i){
-      delete destinations.at(i);
-    }
-
-    destinations.clear();
-    
-    //delete route
-    //for loop delete all routes object pointer
-    for(int i=0; i < allRoutes.size(); ++i){
-      delete allRoutes.at(i);
-    }
-
-    allRoutes.clear();
+      deleteRoutes();
+      deleteCities();
   }
 
   void addCities(){
@@ -82,7 +68,7 @@ class USMap : public Map{
     destinations.push_back(new City("Winnipeg"));
   }
 
-  void makeRoutes(){
+  void addRoutes(){
     allRoutes.reserve(78);
     
     //Add Routes
@@ -185,41 +171,41 @@ class USMap : public Map{
       return 0;
   }
 
-  // Route* USMap::getRoute(string startCity, string endCity, string color){
-  //   //To Do: Interchange Cities or do for both cities
+  // Route* getRoute(string startCity, string endCity, string color){
+  //   To Do: Interchange Cities or do for both cities
     
-  //   // bool look=false;
-  //   // for(int i=0; i < allRoutes.size(); ++i){
-  //   //     allRoutes.at(i)->destinationA();
-  //   // }
+  //   bool look=false;
+  //   for(int i=0; i < allRoutes.size(); ++i){
+  //       allRoutes.at(i)->destinationA();
+  //   }
 
-  //   // cout << "No Route Found" << endl;
+  //   cout << "No Route Found" << endl;
     
-  //   // return allRoutes.at(0);
+  //   return allRoutes.at(0);
 
   // }
 
-  sf::Sprite claimRouteGraphic(Player *thePlayer, string myCityA, string myCityB, string myColor){
-      cout << "Claim Route Graphic" << endl;
-      claimRoute(thePlayer, myCityA, myCityB, myColor);
-      sf::Sprite temp;
 
-      //set texture
-      temp.setTexture(thePlayer->myTexture);
+//Add Back Graphics: Liberty
+  // sf::Sprite claimRouteGraphic(Player *thePlayer, string myCityA, string myCityB, string myColor){
+  //     cout << "Claim Route Graphic" << endl;
+  //     claimRoute(thePlayer, myCityA, myCityB, myColor);
+  //     sf::Sprite temp;
 
-      //set scale and position
+  //     //set texture
+  //     temp.setTexture(thePlayer->myTexture);
 
-         // sf::Vector2f myPosition( findPathX(myCityA, myCityB, myColor)/1.0, findPathY(myCityA, myCityB, myColor)/1.0);
-      temp.setScale(sf::Vector2f(0.044f, 0.054f)); // absolute scale factory
-      sf::Vector2f myPosition(findPathX(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().x * temp.getScale().x)/2.0, findPathY(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().y * temp.getScale().y)/2.0);
-      temp.setPosition(myPosition);
+  //     //set scale and position
 
-      return temp;
-  }
+  //        // sf::Vector2f myPosition( findPathX(myCityA, myCityB, myColor)/1.0, findPathY(myCityA, myCityB, myColor)/1.0);
+  //     temp.setScale(sf::Vector2f(0.044f, 0.054f)); // absolute scale factory
+  //     sf::Vector2f myPosition(findPathX(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().x * temp.getScale().x)/2.0, findPathY(myCityA, myCityB, myColor)/1.0 - (temp.getTexture()->getSize().y * temp.getScale().y)/2.0);
+  //     temp.setPosition(myPosition);
+
+  //     return temp;
+  // }
 
   void claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
-    cout << "Claim Route" << endl;
-    //isOccupied();
     bool check = false;
     int index = findRoute(myCityA, myCityB, color);
     //To Do: Check Cards (number and correct color)
@@ -228,7 +214,7 @@ class USMap : public Map{
     //To Do: Check Route Not Occupied
       if(check == true){
         ///throw error
-        cout << "Route Occupied" << endl;
+        cout << "Route Occupied/Failed" << endl;
 
       }else{
 
@@ -242,11 +228,25 @@ class USMap : public Map{
           }else{
             if(allRoutes[index]->getColor1() == color && allRoutes[index]->pathOne != 0){
               //claim path 1
+
+      // cout << thePlayer->getName();
+      cout << "claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << " for " << addScore(allRoutes[index]->requiredTrains) << " points." << endl;
+
+      //add score to player
+      //Player->setScore(addScore(allRoutes[index]->requiredTrains));
+
               allRoutes[index]->claimPath(thePlayer, 1);
 
             }else if(allRoutes[index]->getColor2() == color){
               //claim path 2
+
+      // cout << thePlayer->nameName() << "has a total of "
+      cout << "claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << "for " << addScore(allRoutes[index]->requiredTrains) << "points" << endl;
+
               allRoutes[index]->claimPath(thePlayer, 2);
+
+      //add score to player
+      //Player->setScore(addScore(allRoutes[index]->requiredTrains));
             }
             
           }
@@ -254,6 +254,30 @@ class USMap : public Map{
     }
   
   //claim the route
+  }
+
+  int addScore(int cars){
+    cout << "Cars in addScore()"<< cars << endl;
+    if(cars==1){
+      return 1;
+    }else if(cars==2){
+      return 2;
+    }else if(cars==3){
+      return 4;
+    }else if(cars==4){
+      return 7;
+    }else if(cars==5){
+      return 10;
+    }
+    else if(cars==6){
+      return 15;
+    }
+    else if(cars==9){
+      return 27;
+    }
+
+    //throw error
+    return -1;
   }
   
 
@@ -317,6 +341,48 @@ class USMap : public Map{
 
   void resetMap(){
     //resets the map
+    deleteRoutes();
+    deleteCities();
+    addRoutes();
+    addCities();
+  }
+
+  void deleteRoutes(){
+    for (Route* obj : allRoutes)
+        delete obj;
+
+    allRoutes.clear();
+  }
+
+  void deleteCities(){
+    //for loop delete all cities object pointer
+    for(int i=0; i < destinations.size(); ++i){
+      delete destinations.at(i);
+    }
+
+  }
+
+  void printMap(){
+    cout << "Available Routes: "<< endl;
+    int count=0;
+    int temp;
+    for (Route* obj : allRoutes){
+      if(!obj->isOccupiedOne())
+          cout << obj->getCity1()->getName() << " to " << obj->getCity2()->getName() << " path " << obj->getColor1() << " | " && count++;
+      
+      if(count%5==0){
+        cout << endl;
+      }
+
+      if(!obj->isOccupiedTwo())
+          cout << obj->getCity1()->getName() << " to " << obj->getCity2()->getName()  << " path " << obj->getColor2() << " | " && count++;
+
+      if(count%5==0 && !(obj->isOccupiedTwo())){
+        cout << endl;
+      }
+    }
+    cout << endl;
+
   }
 
   void drawMap(){

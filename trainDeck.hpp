@@ -1,9 +1,8 @@
-#ifndef __TRAINDECK_HPP__ //train deck no need _
-#define __TRAINDECK_HPP__ //train deck no need _
+#ifndef __TRAINDECK_HPP__ 
+#define __TRAINDECK_HPP__ 
 
 #include "deck.hpp"
 #include "trainCard.hpp"
-#include "trainRow.hpp"
 #include <vector>
 #include <iostream>
 #include <cstdlib>
@@ -11,22 +10,19 @@
 
 using namespace std;
 
-class TrainDeck : public Deck {
-	
-    public:
+class TrainDeck : public Deck<TrainCard> {
+
+public:
+
     vector<TrainCard> trainDeck;
-
-    TrainDeck() {};
-
-    //To Do: Disconstructor
-    ~TrainDeck() {};
     
+    TrainDeck() {}
+
+    ~TrainDeck() {}
+
     void createDeck() {
     //wild cards = grey
     //colors all lowercase
-    //TrainCard temp("purple");
-
-    //trainDeck.push_back(TrainCard("purple"));
 
 
 	for(int i = 0; i < 12; ++i) {
@@ -66,8 +62,16 @@ class TrainDeck : public Deck {
 	}
 
     }
+    
+    void display(vector<TrainCard> &displayTrainDeck) const {
+	    for(int i = 0; i < displayTrainDeck.size(); i++) {
+		    TrainCard temp = displayTrainDeck.at(i);
+            cout << "Train Card " << i + 1 << endl;
+            cout << temp.getColorName() << endl;
+	    }
+    }
 
-    TrainCard drawTrainCard(){
+    TrainCard drawCard(){
         TrainCard temp;
         temp = trainDeck.back();
         trainDeck.pop_back();
@@ -75,17 +79,15 @@ class TrainDeck : public Deck {
     }
 
     
-    void shuffle() {// <--outside
-            //shuffle myself and not an outside
-        random_shuffle(trainDeck.begin(), trainDeck.end());
+    void shuffle(vector<TrainCard> trainDeck) {// <--outside
+    //         shuffle myself and not an outside
+    //    random_shuffle(trainDeck.begin(), trainDeck.end());
 
     }
     
 
-    void addCard(TrainCard& addingCard) {
-	
-	//tCards->push_back(addingCard);
-
+    void addCard(TrainCard &addingCard) {
+        trainDeck.push_back(addingCard);
     }
 
     // void sort() {
@@ -94,25 +96,25 @@ class TrainDeck : public Deck {
     // }
 
     //To Do: Ashley
-	bool isThisInMyDeck(string color, int num){
+	// isThisInMyDeck(string color, int num){
 		//check if this these cards are in my deck
 		//return true if they are
 		//return false if they are no
 
-        string playerColor = color;
-        int numCards = num;
+        //string playerColor = color;
+        //int numCards = num;
 
-        if (playerColor == ){
+        //if (playerColor == ){
 
 			
 
-		return true;
-		}
+	//	return true;
+		//}
 
-		else() {
-		return false;
-		}
-	}
+		//else {
+		//return false;
+		//}
+	//}
     
 
     //To Do: Ashley

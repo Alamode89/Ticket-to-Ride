@@ -19,17 +19,15 @@ class Board {
 
     Map* myMap;
 
-  void virtual displayBoard(){
-    // hmm maybe not
-  }
 
   void createBoard(int chooseMap){
-
-    //US Map for Now - stub
-    modeUS();
-
-
     //To Do US Versus Nordic Countries
+    if(chooseMap == 1)
+      modeUS();
+    // if(chooseMap == 2)
+    //   modeNordic();
+
+
 
 
   }
@@ -38,10 +36,11 @@ class Board {
     //create US Map
     myMap = new USMap();
 
-
-    //create US Train Deck
-
-
+    //TrainDeck deckA;
+    theTrainDeck.createDeck();
+    //theTrainDeck.shuffle();
+    theTicketDeck.createDeck();
+    //theTicketDeck.shuffle();
 
     //create US Ticket Deck
   }
@@ -54,7 +53,6 @@ class Board {
 
 
     //create Nordic Train Deck
-
 
 
     //create Nordic Ticket Deck

@@ -2,9 +2,9 @@
 #define __ROUTE_HPP__
 
 class City;
+class Player;
 #include <vector>
-#include "city.hpp"
-#include "player.hpp"
+
 
 using namespace std;
 
@@ -40,6 +40,8 @@ class Route {
 
     xPos1=xCoord;
     yPos1=yCoord;
+
+    requiredTrains=trainCards;
   }
 
   Route(City* startCity, City* endCity, int trainCards, string colorA, string colorB, int xCoord1, int yCoord1, int xCoord2, int yCoord2){
@@ -57,40 +59,13 @@ class Route {
 
     xPos2=xCoord2;
     yPos2=yCoord2;
+
+    requiredTrains=trainCards;
   }
 
 //To Do: Delete?
-  void setClaim(Player aPlayer){
-  //   if(path <= 0){
-  //      //throw error - occupied
-  //   }else{
+  void setClaim(Player* aPlayer){
 
-  //     //check trains
-  //     if(aPlayer.getCar() < requiredTrains){
-  //       //throw error - not enough trains
-  //     }
-
-  //     aPlayer.getTrainCards().size();
-  //     path-=1;
-      
-  //     int checkTrainCards=requireTrains;
-  //     //check cards
-  //     for(int i=0; i < aPlayer.getTrainCards().size(); i++){
-  //       if (aPlayer.getTrainCards().at(i).name == color){
-  //         --checkTrainCards;
-  //       }
-  //     }
-
-  //     //check if enough cards
-  //     if(checkTrainCards<=requiredTrains){
-  //       paths-=1;
-  //     }else{
-  //       cout << "Not enought Trains"
-  //       ///throw error - not enough trains
-  //     }
-
-
-  //   }
    }
   bool checkRoute(string A, string B){
     bool isThisMyRoute=0;
@@ -136,7 +111,7 @@ class Route {
     return color2;
   }
 
-  void claimPath(Player * thePlayer, int pathNumber){
+  void claimPath(Player *thePlayer, int pathNumber){
     if(pathNumber==1){
       playerPath1=thePlayer;
       pathOne=0;
