@@ -10,6 +10,7 @@ tickets.hpp.gch
 trainCard.hpp.gch
 trainDeck.hpp.gch
 us_map.hpp.gch
+city.hpp.gch
 
 .vscode/*
 trainDeckmain.cpp
