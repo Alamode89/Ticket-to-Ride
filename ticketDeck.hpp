@@ -56,14 +56,14 @@ class TicketDeck : public Deck {
 
     }
 
-	Tickets drawTicket(){
+		Tickets drawTicket(){
         Tickets temp;
         temp = ticketDeck.back();
         ticketDeck.pop_back();
         return temp;
     }
 
-    void shuffle(vector<Tickets> &ticketDeck) {
+    void shuffle() {
 		random_shuffle(ticketDeck.begin(),ticketDeck.end());
 
     }
@@ -73,19 +73,49 @@ class TicketDeck : public Deck {
 
     }
 
-    void sort() {
+    // void sort() {
 
 
-    }
+    // }
 
-    void addDiscard(Deck &discard) {
+		//To Do: Ashley
+	bool isThisInMyDeck(string color, int num){
+		//check if this these cards are in my deck
+		//return true if they are
+		//return false if they are no
+	// 	if (color){
+
+			
+
+	// 	return true;
+	// 	}
+
+	// 	else() {
+	// 	return false;
+	// 	}
+	// }
+
+
+
+		//To Do: Ashley
+    void mergeDeck(Deck &discard){
         //adds cards from discard deck into the deck and updates old discard deck
         //pop out all discard cards ... push them back into this deck
-        
-        //HIGHLY unlikely to happen in the ticket deck
 
+		
 
     }
+
+		//To Do: Ashley
+	void resetDeck(){
+		//delete all objects in vector
+		//call create deck function
+
+		ticketDeck.clear();
+
+		createDeck();
+    }
+
 
 };
 

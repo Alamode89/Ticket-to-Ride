@@ -14,7 +14,6 @@ using namespace std;
 class TrainDeck : public Deck {
 	
     public:
-
     vector<TrainCard> trainDeck;
 
     TrainDeck() {};
@@ -76,8 +75,8 @@ class TrainDeck : public Deck {
     }
 
     
-    void shuffle(vector<TrainCard> &trainDeck) {
-
+    void shuffle() {// <--outside
+            //shuffle myself and not an outside
         random_shuffle(trainDeck.begin(), trainDeck.end());
 
     }
@@ -89,18 +88,42 @@ class TrainDeck : public Deck {
 
     }
 
-    void sort() {
+    // void sort() {
 
 
-    }
+    // }
 
-    void addDiscard(Deck &discard) {
+    //To Do: Ashley
+	bool isThisInMyDeck(string color, int num){
+		//check if this these cards are in my deck
+		//return true if they are
+		//return false if they are no
+
+        string playerColor = color;
+        int numCards = num;
+
+        if (playerColor == ){
+
+			
+
+		return true;
+		}
+
+		else() {
+		return false;
+		}
+	}
+    
+
+    //To Do: Ashley
+    void mergeDeck(Deck &discard){ // take outside 
         //adds cards from discard deck into the deck and updates old discard deck
         //pop out all discard cards ... push them back into this deck
 
-
+        
 
     }
+
 };
 
 #endif //__TRAINDECK_HPP__
