@@ -7,41 +7,35 @@ using namespace std;
 
 class Tickets {
 
+    private:
+        string DestinationA;
+        string DestinationB;
+        int value;
+
     public:
+        Tickets() {
 
-    string DestinationA;
-    string DestinationB;
-    int value;
+        }
 
-    Tickets() {
+        Tickets(string destA, string destB, int val) {
+            DestinationA = destA;
+            DestinationB = destB;
+            value = val;
+        }
 
-    }
-
-    Tickets(string destA, string destB, int val) {
-        DestinationA = destA;
-        DestinationB = destB;
-        value = val;
-    }
-
-    ~Tickets() {}
+        ~Tickets() {}
 
 
     string getDestinationA() {
-        //stub
-        string temp = "Vancouver";
-        return temp;
+        return DestinationA;
     }
 
     string getDestinationB() {
-        //stub
-        string temp = "Seattle";
-        return temp;
+        return DestinationB ;
     }
 
     int getValue(){
-
-        //stub
-        return 10;
+        value;
     }
 
 };

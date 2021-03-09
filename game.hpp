@@ -13,22 +13,56 @@ class Game {
     vector <Player> thePlayers;
 
   void newGame(){
+      int players;
+      string playerName;
+      string playerColor;
+      int mapChoice;
       //select map
-      
-      //select number of player
-
-      //set up players
+      cout << "How many players?" << endl;
+      cin >> players;
+      for(int i = 0; i < players - 1; i++) {
+          cout << "Name?" << endl;
+          cin >> playerName;
+          cout << endl;
+          cout << "Color>?" << endl;
+          cin >> playerColor;
+          Player temp(playerName, playerColor);
+          thePlayers.push_back(temp);
+      }
 
       //create new board
+      cout << "Which board? US Map is 1, Nordic is 2" << endl;
+      cin >> mapChoice;
 
+      theBoard.createBoard(mapChoice);
+
+      for(int i = 0; i < thePlayers.size() - 1; i++) {
+      thePlayers.at(i).populateHand(theBoard.theTrainDeck, theBoard.theTicketDeck);
+    }
   }
 
-  int calculateScorePlayer(Player myPlayer){
-    return -1;
+  void playGame() {
+    //going to need a way to loop through again until the game obj is done
+    //bool gameOver = true;
+    // while(gameOver) {
+      for(int i = 0; i < thePlayers.size() - 1; i++) {
+        thePlayers.at(i).takeTurn(theBoard);
+      }
+    //}
   }
 
   int calculateScore(Player thePlayer){
     return -1;
+  }
+
+    int calculateHighScore(){
+    int highestScore = 0; // saves the index of the highest scoring player
+    for(int i = 0; i < thePlayers.size() - 1; i++) {
+      if(thePlayers.at(i).getScore() > highestScore) {
+          highestScore = i;
+      }
+    } 
+    return highestScore;
   }
 
 

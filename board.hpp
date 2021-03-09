@@ -37,9 +37,10 @@ class Board {
     myMap = new USMap();
 
     //TrainDeck deckA;
-
-
-
+    theTrainDeck.createDeck();
+    theTrainDeck.shuffle();
+    theTicketDeck.createDeck();
+    theTicketDeck.shuffle();
 
     //create US Ticket Deck
   }
