@@ -1,9 +1,12 @@
-#ifndef __TRAINDECK_HPP__ //train deck no need _
-#define __TRAINDECK_HPP__ //train deck no need _
+#ifndef __TRAINDECK_HPP__ 
+#define __TRAINDECK_HPP__ 
 
 #include "deck.hpp"
 #include "trainCard.hpp"
 #include <vector>
+#include <iostream>
+#include <cstdlib>
+#include <algorithm>
 
 using namespace std;
 
@@ -54,7 +57,7 @@ public:
         trainDeck.push_back(TrainCard("white"));   
 	}
 
-    for(int f = 0; f < 12; ++f) {
+    for(int f = 0; f < 14; ++f) {
         trainDeck.push_back(TrainCard("grey"));   
 	}
 
@@ -75,35 +78,54 @@ public:
         return temp;
     }
 
-    //To Do: Ashely
-    void shuffle() {
-
+    
+    void shuffle(vector<TrainCard> trainDeck) {// <--outside
+    //         shuffle myself and not an outside
+    //    random_shuffle(trainDeck.begin(), trainDeck.end());
 
     }
+    
 
     void addCard(TrainCard &addingCard) {
         trainDeck.push_back(addingCard);
     }
 
-    void sort() {
-        //you can choose to skip this if you don't need it isThisInMyDec
+    // void sort() {
 
-    }
 
-    //To Do: Ashely
-    bool isThisInMyDeck(string color, int num){ //other classes need to know if certain things are in the player hand
+    // }
+
+    //To Do: Ashley
+	// isThisInMyDeck(string color, int num){
 		//check if this these cards are in my deck
 		//return true if they are
 		//return false if they are no
-		
-	}
 
-    //To Do: Ashely
-    void mergeDeck(Deck &discard){
+        //string playerColor = color;
+        //int numCards = num;
+
+        //if (playerColor == ){
+
+			
+
+	//	return true;
+		//}
+
+		//else {
+		//return false;
+		//}
+	//}
+    
+
+    //To Do: Ashley
+    void mergeDeck(Deck &discard){ // take outside 
         //adds cards from discard deck into the deck and updates old discard deck
         //pop out all discard cards ... push them back into this deck
 
+        
+
     }
+
 };
 
 #endif //__TRAINDECK_HPP__

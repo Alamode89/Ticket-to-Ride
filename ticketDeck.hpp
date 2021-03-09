@@ -4,6 +4,9 @@
 #include "deck.hpp"
 #include "tickets.hpp"
 #include <vector>
+#include <algorithm>
+#include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -67,10 +70,10 @@ class TicketDeck : public Deck<Tickets> {
         return temp;
     }
 
-    void shuffle() {
-
-
-    }
+   void shuffle(vector<Tickets> theDeck) {
+		
+			// /random_shuffle(theDeck.begin(),theDeck.end());
+   }
 		
     virtual void addCard(Tickets &newCard) {
 			ticketDeck.push_back(newCard);
@@ -78,28 +81,57 @@ class TicketDeck : public Deck<Tickets> {
 
 
 		//To Do: Ashely
-		bool isThisInMyDeck(string color, int num){ //other classes need to know if certain things are in the player hand
+		//bool isThisInMyDeck(string color, int num){ //other classes need to know if certain things are in the player hand
 			//check if this these cards are in my deck
 			//return true if they are
 			//return false if they are no
 		
-		}
+		//}
 
 
-		//To Do: Ashely - helper for isThisInMyDeck() if you need it
-    void sort() {
+    // void sort() {
 
 
-    }
+    // }
+
+		//To Do: Ashley
+	bool isThisInMyDeck(string color, int num){
+		//check if this these cards are in my deck
+		//return true if they are
+		//return false if they are no
+	// 	if (color){
+
+			
+
+	// 	return true;
+	// 	}
+
+	// 	else() {
+	// 	return false;
+	// 	}
+	}
 
 
-		//To Do: Ashely
-    void mergeDeck(Deck &discard) {
+
+		//To Do: Ashley
+    void mergeDeck(Deck &discard){
         //adds cards from discard deck into the deck and updates old discard deck
         //pop out all discard cards ... push them back into this deck
-        
-        //HIGHLY unlikely to happen in the ticket deck
+
+		
+
     }
+
+		//To Do: Ashley
+	void resetDeck(){
+		//delete all objects in vector
+		//call create deck function
+
+		ticketDeck.clear();
+
+		createDeck();
+    }
+
 
 };
 

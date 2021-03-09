@@ -19,15 +19,12 @@ class TrainCard {
 
     }
 
-        //To Do: deconstructor
-
     ~TrainCard() {}
 
     std::string getColorName() {
         return colorName;
     }
         
-
 };
 
 #endif //__TRAINCARD_HPP__

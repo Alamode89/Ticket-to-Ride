@@ -20,11 +20,10 @@ class Game {
       //select map
       cout << "How many players?" << endl;
       cin >> players;
-      for(int i = 0; i < players - 1; i++) {
+      for(int i = 0; i < players; i++) {
           cout << "Name?" << endl;
           cin >> playerName;
-          cout << endl;
-          cout << "Color>?" << endl;
+          cout << "Color?" << endl;
           cin >> playerColor;
           Player temp(playerName, playerColor);
           thePlayers.push_back(temp);
