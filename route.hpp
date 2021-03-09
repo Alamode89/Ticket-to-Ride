@@ -30,6 +30,7 @@ class Route {
     Player *playerPath1 = nullptr;
     Player *playerPath2 = nullptr;
 
+//Coordinate Constructors
   Route(City* startCity, City* endCity, int trainCards, string color, int xCoord, int yCoord){
     destinationA=startCity;
     destinationB=endCity;
@@ -62,6 +63,33 @@ class Route {
 
     requiredTrains=trainCards;
   }
+
+//
+
+  Route(City* startCity, City* endCity, int trainCards, string color){
+    destinationA=startCity;
+    destinationB=endCity;
+    
+    color1=color;
+
+    pathOne=1;
+
+    requiredTrains=trainCards;
+  }
+
+  Route(City* startCity, City* endCity, int trainCards, string colorA, string colorB){
+    destinationA=startCity;
+    destinationB=endCity;
+
+    color1=colorA;
+    color2=colorB;
+
+    pathOne=1;
+    pathTwo=1;
+
+    requiredTrains=trainCards;
+  }
+
 
 //To Do: Delete?
   void setClaim(Player* aPlayer){
