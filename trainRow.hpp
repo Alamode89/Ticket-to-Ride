@@ -16,7 +16,7 @@ public:
         //takeFromTheTrainDeck.drawCard();
         //draw deck
         for(int i=0; i < 5; ++i){
-            displayCards.push_back(takeFromTheTrainDeck.drawTrainCard());
+            displayCards.push_back(takeFromTheTrainDeck.drawCard());
         }
     }
 
@@ -35,7 +35,7 @@ public:
         displayCards.erase(displayCards.begin()+choice-1);
         
         //1 card draw from board game deck - to keep me at 5 cards at all times
-        displayCards.push_back(takeFromTheTrainDeck.drawTrainCard());
+        displayCards.push_back(takeFromTheTrainDeck.drawCard());
 
         return temp;
     }

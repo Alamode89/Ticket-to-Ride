@@ -7,23 +7,19 @@
 
 using namespace std;
 
-class TrainDeck {
+class TrainDeck : public Deck<TrainCard> {
 
 public:
+
     vector<TrainCard> trainDeck;
     
-    TrainDeck() {
-        createDeck();
-    }
+    TrainDeck() {}
 
     ~TrainDeck() {}
 
     void createDeck() {
     //wild cards = grey
     //colors all lowercase
-    //TrainCard temp("purple");
-
-    //trainDeck.push_back(TrainCard("purple"));
 
 
 	for(int i = 0; i < 12; ++i) {
@@ -64,36 +60,46 @@ public:
 
     }
     
-    void draw() {
-
-
+    void display(vector<TrainCard> &displayTrainDeck) const {
+	    for(int i = 0; i < displayTrainDeck.size(); i++) {
+		    TrainCard temp = displayTrainDeck.at(i);
+            cout << "Train Card " << i + 1 << endl;
+            cout << temp.getColorName() << endl;
+	    }
     }
 
-    TrainCard drawTrainCard(){
+    TrainCard drawCard(){
         TrainCard temp;
         temp = trainDeck.back();
         trainDeck.pop_back();
         return temp;
     }
 
+    //To Do: Ashely
     void shuffle() {
 
 
     }
 
-    void addCard(TrainCard& addingCard) {
-	
-	//tCards->push_back(addingCard);
-    trainDeck.push_back(addingCard);
-
+    void addCard(TrainCard &addingCard) {
+        trainDeck.push_back(addingCard);
     }
 
     void sort() {
-
+        //you can choose to skip this if you don't need it isThisInMyDec
 
     }
 
-    void addDiscard(Deck &discard) {
+    //To Do: Ashely
+    bool isThisInMyDeck(string color, int num){ //other classes need to know if certain things are in the player hand
+		//check if this these cards are in my deck
+		//return true if they are
+		//return false if they are no
+		
+	}
+
+    //To Do: Ashely
+    void mergeDeck(Deck &discard){
         //adds cards from discard deck into the deck and updates old discard deck
         //pop out all discard cards ... push them back into this deck
 
