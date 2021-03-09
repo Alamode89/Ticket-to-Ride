@@ -6,6 +6,8 @@
 #include "trainDeck.hpp"
 #include "ticketDeck.hpp"
 #include "board.hpp"
+#include "route.hpp"
+#include <vector>
 
 //#include <SFML/Graphics.hpp>
 
@@ -112,16 +114,14 @@ class Player { //does not inherit from the game - please change - Liberty
 			}	
 
 			if(userChoice == "3") {
-				isPlayerTurn = false;
-				bool validRoute;
-				aBoard.myMap->printMap();  
-				cout << "claim route" << endl;
-				//from where to where?
-				//what color?
+				isPlayerTurn = false;  
+				aBoard.myMap->printMap();
 				aBoard.myMap->claimRoute(this, "Seattle", "Helena", "yellow");
-				//delete cards from hands after claim route
-				
-				
+				//get cards
+
+				int numCardsToRemove=aBoard.myMap->allRoutes[aBoard.myMap->findRoute("Seattle", "Helena", "yellow")]->requiredTrains;
+				cout << "Trains Required/Remove this Number cards from deck:" << numCardsToRemove << endl;
+	
 			}
 
 			if(userChoice == "4") {
