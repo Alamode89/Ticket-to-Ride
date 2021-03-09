@@ -12,18 +12,16 @@ using namespace std;
 
 class USMap : public Map{
   public:
-    string imagePath="images/us_map.jpeg";
-    string mapName="US Map";
+    // string imagePath="images/us_map.jpeg";
+    // string mapName="US Map";
 
   USMap(){
       addCities();
       addRoutes();
-      drawMap();
   }
 
   ~USMap(){
-      deleteRoutes();
-      deleteCities();
+
   }
 
   void addCities(){
@@ -152,8 +150,6 @@ class USMap : public Map{
     allRoutes.push_back(new Route(getCity("Atlanta"), getCity("Nashville"), 1, "grey", 722, 412));
     allRoutes.push_back(new Route(getCity("Nashville"), getCity("Pittsburgh"), 4, "yellow", 781, 330));
     allRoutes.push_back(new Route(getCity("Pittsburgh"), getCity("Saint Louis"), 5, "green", 749, 312));
-
-
   }
 
   City* getCity(string theCity){
@@ -349,20 +345,7 @@ class USMap : public Map{
     addCities();
   }
 
-  void deleteRoutes(){
-    for (Route* obj : allRoutes)
-        delete obj;
 
-    allRoutes.clear();
-  }
-
-  void deleteCities(){
-    //for loop delete all cities object pointer
-    for(int i=0; i < destinations.size(); ++i){
-      delete destinations.at(i);
-    }
-
-  }
 
   void printMap(){
     cout << "Available Routes: "<< endl;

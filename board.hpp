@@ -17,7 +17,13 @@ class Board {
     TicketDeck theTicketDeck;
     TicketDeck discardTicket;
 
-    Map* myMap;
+    Map* myMap = nullptr;
+
+    ~Board(){
+      if (myMap != nullptr)
+        delete myMap;
+    }
+
 
 
   void createBoard(int chooseMap){
