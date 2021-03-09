@@ -57,6 +57,20 @@ class TicketDeck : public Deck<Tickets> {
 
     }
 
+		void createDeckNordicCards(){
+			ticketDeck.push_back(Tickets("Vaasa", "Kuopio", 4));
+			ticketDeck.push_back(Tickets("Mo I Rana", "Narvik", 4));
+			ticketDeck.push_back(Tickets("Trondheim", "Mo I Rana", 6));
+			ticketDeck.push_back(Tickets("Lieska", "Murmansk", 9));
+			ticketDeck.push_back(Tickets("Karlskrona", "Umea", 11));
+			ticketDeck.push_back(Tickets("Alborg", "Andalsnes", 12));
+			ticketDeck.push_back(Tickets("Arhus", "Sundsvall", 12));
+			ticketDeck.push_back(Tickets("Gotebourg", "Oulu", 16));
+			ticketDeck.push_back(Tickets("Kristiansand", "Tornio", 18));
+			ticketDeck.push_back(Tickets("Kobenhavn", "Boden", 20));
+			ticketDeck.push_back(Tickets("Stockholm", "Murmansk", 21));
+		}
+
     void display(vector<Tickets> displayTicketDeck) const {
 	    for(int i = 0; i < displayTicketDeck.size(); i++) {
             cout << "Ticket " << i + 1 << endl;

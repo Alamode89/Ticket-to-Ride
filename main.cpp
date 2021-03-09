@@ -22,6 +22,8 @@ void doClassesRun(){
   City* myCityA = new City("Vancouver");
   City* myCityB = new City("Seattle");
   
+  delete myCityA;
+  delete myCityB;
   Tickets myTicket; 
   TicketDeck ticketDeck;
   Board myBoard;

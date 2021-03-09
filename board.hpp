@@ -6,7 +6,7 @@
 #include "ticketDeck.hpp"
 #include "map.hpp"
 #include "us_map.hpp"
-//#include "nordic_map.hpp"
+#include "nordic_map.hpp"
 
 using namespace std;
 
@@ -17,18 +17,22 @@ class Board {
     TicketDeck theTicketDeck;
     TicketDeck discardTicket;
 
-    Map* myMap;
+    Map* myMap = nullptr;
+
+    ~Board(){
+      if (myMap != nullptr)
+        delete myMap;
+    }
+
 
 
   void createBoard(int chooseMap){
     //To Do US Versus Nordic Countries
     if(chooseMap == 1)
       modeUS();
-    // if(chooseMap == 2)
-    //   modeNordic();
-
-
-
+    else if(chooseMap == 2)
+       modeNordic();
+    else { cout << "That's not a prompt!" << endl;}
 
   }
 
@@ -36,26 +40,31 @@ class Board {
     //create US Map
     myMap = new USMap();
 
-    //TrainDeck deckA;
+    //TrainDeck
     theTrainDeck.createDeck();
     theTrainDeck.shuffle();
+
+    //create US Ticket Deck
     theTicketDeck.createDeck();
     theTicketDeck.shuffle();
 
-    //create US Ticket Deck
+ 
   }
 
 
 
   void modeNordic(){
     //create Nordic Map
-      //myMap = new NordicMap();
-
+    myMap = new NordicMap();
 
     //create Nordic Train Deck
-
-
+    theTrainDeck.createDeck();
+    theTrainDeck.shuffle();
+    
     //create Nordic Ticket Deck
+    theTicketDeck.createDeckNordicCards();
+    theTicketDeck.shuffle();
+
   }
 
 
