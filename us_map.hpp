@@ -13,8 +13,6 @@ using namespace std;
 class USMap : public Map{
   public:
     string imagePath="images/us_map.jpeg";
-    vector<City *> destinations;
-    vector<Route *> allRoutes;
     string mapName="US Map";
 
   USMap(){
@@ -66,6 +64,10 @@ class USMap : public Map{
     destinations.push_back(new City("Vancouver"));
     destinations.push_back(new City("Washington"));
     destinations.push_back(new City("Winnipeg"));
+  }
+
+  vector<Route *> getAllRoutes(){
+    return allRoutes;
   }
 
   void addRoutes(){
