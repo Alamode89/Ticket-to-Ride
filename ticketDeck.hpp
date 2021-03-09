@@ -60,7 +60,7 @@ class TicketDeck : public Deck<Tickets> {
     void display(vector<Tickets> displayTicketDeck) const {
 	    for(int i = 0; i < displayTicketDeck.size(); i++) {
             cout << "Ticket " << i + 1 << endl;
-		    cout << displayTicketDeck.at(i).getDestinationA() << " " << displayTicketDeck.at(i).getDestinationB() << endl ;
+		    cout << displayTicketDeck.at(i).getDestinationA() << " to " << displayTicketDeck.at(i).getDestinationB() << " | Value: " << displayTicketDeck.at(i).getValue() << endl;
 	    }
     }
 
@@ -70,10 +70,12 @@ class TicketDeck : public Deck<Tickets> {
         return temp;
     }
 
-   void shuffle(vector<Tickets> theDeck) {
-		
-			// /random_shuffle(theDeck.begin(),theDeck.end());
-   }
+	void shuffle() {
+		for(int i = 0; i < ticketDeck.size(); i++) {
+            int j = i + rand() % (ticketDeck.size() - i);
+            swap(ticketDeck.at(i), ticketDeck.at(j));
+        }
+  	}
 		
     virtual void addCard(Tickets &newCard) {
 			ticketDeck.push_back(newCard);
@@ -95,7 +97,7 @@ class TicketDeck : public Deck<Tickets> {
     // }
 
 		//To Do: Ashley
-	bool isThisInMyDeck(string color, int num){
+	//bool isThisInMyDeck(string color, int num){
 		//check if this these cards are in my deck
 		//return true if they are
 		//return false if they are no
@@ -109,7 +111,7 @@ class TicketDeck : public Deck<Tickets> {
 	// 	else() {
 	// 	return false;
 	// 	}
-	}
+	//}
 
 
 
@@ -123,7 +125,7 @@ class TicketDeck : public Deck<Tickets> {
     }
 
 		//To Do: Ashley
-	void resetDeck(){
+		void resetDeck(){
 		//delete all objects in vector
 		//call create deck function
 

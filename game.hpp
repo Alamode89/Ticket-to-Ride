@@ -21,40 +21,39 @@ class Game {
       cout << "How many players?" << endl;
       cin >> players;
       for(int i = 0; i < players; i++) {
-          cout << "Name?" << endl;
+          cout << "Name? ";
           cin >> playerName;
-          cout << "Color?" << endl;
+          cout << "Color? ";
           cin >> playerColor;
           Player temp(playerName, playerColor);
           thePlayers.push_back(temp);
       }
 
       //create new board
-      cout << "Which board? US Map is 1, Nordic is 2" << endl;
+      cout << "Which board? US Map is 1, Nordic is 2. ";
       cin >> mapChoice;
-
+      cout << endl;
       theBoard.createBoard(mapChoice);
 
-      for(int i = 0; i < thePlayers.size() - 1; i++) {
+    for(int i = 0; i < thePlayers.size(); i++) {
       thePlayers.at(i).populateHand(theBoard.theTrainDeck, theBoard.theTicketDeck);
     }
+
   }
 
   void playGame() {
     //going to need a way to loop through again until the game obj is done
-    //bool gameOver = true;
-    // while(gameOver) {
-      for(int i = 0; i < thePlayers.size() - 1; i++) {
+    //bool gameOver = false;
+    // while(!gameOver) {
+      for(int i = 0; i < thePlayers.size(); i++) {
+        cout << "It's " << thePlayers.at(i).getName() << "'s turn!" << endl;
         thePlayers.at(i).takeTurn(theBoard);
+        //if game over, make false
       }
     //}
   }
 
-  int calculateScore(Player thePlayer){
-    return -1;
-  }
-
-    int calculateHighScore(){
+  int calculateHighScore(){
     int highestScore = 0; // saves the index of the highest scoring player
     for(int i = 0; i < thePlayers.size() - 1; i++) {
       if(thePlayers.at(i).getScore() > highestScore) {

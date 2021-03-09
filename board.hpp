@@ -38,9 +38,9 @@ class Board {
 
     //TrainDeck deckA;
     theTrainDeck.createDeck();
-    //theTrainDeck.shuffle();
+    theTrainDeck.shuffle();
     theTicketDeck.createDeck();
-    //theTicketDeck.shuffle();
+    theTicketDeck.shuffle();
 
     //create US Ticket Deck
   }

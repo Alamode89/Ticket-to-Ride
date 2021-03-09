@@ -32,7 +32,7 @@ class Player { //does not inherit from the game - please change - Liberty
 	
 	Player(std::string myName, std::string color) 
 	{
-	    //  myCars = 0;
+	    myCars = 0;
 	    myScore = 0;
         name = myName;
 	    myColor = color;
@@ -78,26 +78,50 @@ class Player { //does not inherit from the game - please change - Liberty
 			std::cout << "What would you like to do? (Input 1-4)" << std::endl;
 			std::cout << "1. Draw a card" << std::endl;
 			std::cout << "2. Draw a ticket" << std::endl;
-        		std::cout << "3. Place a car" << std::endl;
+        	std::cout << "3. Claim route" << std::endl;
 			std::cout << "4. View the rules" << std::endl;
 		//1. make one of three turns
 			std::cin >> userChoice;
 			std::cout << std::endl;
 		
 			if(userChoice == "1") {
-				//myHand.draw();
+				//train row -
+				std::cout << "Your hand right now: " << std::endl;
+				myHand.display(myHand.trainDeck);
+				TrainCard newCard = aBoard.theTrainDeck.drawCard();
+				myHand.trainDeck.push_back(newCard);
+				std::cout << std::endl;
+				std::cout << "Your new hand of Train Cards: " << std::endl;
+				myHand.display(myHand.trainDeck);
+				std::cout << std::endl;
 				isPlayerTurn = false;
+				//train deck
 			}
 	
 			if(userChoice == "2") {
 				//myTickets.draw()
+				std::cout << "Your Tickets right now: " << std::endl;
+				myTickets.display(myTickets.ticketDeck);
+				Tickets newTicket = aBoard.theTicketDeck.drawCard();
+				myTickets.ticketDeck.push_back(newTicket);
+				std::cout << std::endl;
+				std::cout << "Your new hand of Tickets: " << std::endl;
+				myTickets.display(myTickets.ticketDeck);
+				std::cout << std::endl;
 				isPlayerTurn = false;  
 			}	
 
 			if(userChoice == "3") {
-				isPlayerTurn = false;  
-				cout<< "claim route" << endl;
+				isPlayerTurn = false;
+				bool validRoute;
+				aBoard.myMap->printMap();  
+				cout << "claim route" << endl;
+				//from where to where?
+				//what color?
 				aBoard.myMap->claimRoute(this, "Seattle", "Helena", "yellow");
+				//delete cards from hands after claim route
+				
+				
 			}
 
 			if(userChoice == "4") {
@@ -114,12 +138,14 @@ class Player { //does not inherit from the game - please change - Liberty
 	}
 
 	int addScore(int points){
-		myScore + points;
+		return myScore + points;
 	}
 
 	int getScore() const {
 	    //gets the score of the game
 	    return myScore;
 	}
+
+	string getName() const { return name; }
 };
 #endif //__PLAYER_HPP__

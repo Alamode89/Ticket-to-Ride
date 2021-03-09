@@ -31,11 +31,11 @@ class Tickets {
     }
 
     string getDestinationB() {
-        return DestinationB ;
+        return DestinationB;
     }
 
     int getValue(){
-        value;
+        return value;
     }
 
 };

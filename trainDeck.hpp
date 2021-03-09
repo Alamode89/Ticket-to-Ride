@@ -7,7 +7,9 @@
 #include <iostream>
 #include <cstdlib>
 #include <algorithm>
-
+#include <random>
+#include <chrono>
+#include <time.h>
 using namespace std;
 
 class TrainDeck : public Deck<TrainCard> {
@@ -15,7 +17,9 @@ class TrainDeck : public Deck<TrainCard> {
 public:
 
     vector<TrainCard> trainDeck;
-    
+    //unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    //srand(time(NULL));
+
     TrainDeck() {}
 
     ~TrainDeck() {}
@@ -66,8 +70,7 @@ public:
     void display(vector<TrainCard> &displayTrainDeck) const {
 	    for(int i = 0; i < displayTrainDeck.size(); i++) {
 		    TrainCard temp = displayTrainDeck.at(i);
-            cout << "Train Card " << i + 1 << endl;
-            cout << temp.getColorName() << endl;
+            cout << "Train Card " << i + 1 << ": " << temp.getColorName() << endl;
 	    }
     }
 
@@ -79,10 +82,12 @@ public:
     }
 
     
-    void shuffle(vector<TrainCard> trainDeck) {// <--outside
-    //         shuffle myself and not an outside
-    //    random_shuffle(trainDeck.begin(), trainDeck.end());
-
+    void shuffle() {// does not shuffle randomly every game, same way of shuffle
+    //        shuffle myself and not an outside
+        for(int i = 0; i < trainDeck.size(); i++) {
+            int j = i + rand() % (trainDeck.size() - i);
+            swap(trainDeck.at(i), trainDeck.at(j));
+        }
     }
     
 

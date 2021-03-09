@@ -16,6 +16,7 @@ class Map {
  //Route virtual getRoute();
 void virtual claimRoute(Player *thePlayer, string myCityA, string myCityB, string color)=0;
 // void virtual resetMap();
+void virtual printMap()=0;
 
 
 };
