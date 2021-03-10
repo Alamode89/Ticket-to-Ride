@@ -6,7 +6,7 @@
 #include "ticketDeck.hpp"
 #include "map.hpp"
 #include "us_map.hpp"
-#include "nordic_map.hpp"
+//#include "nordic_map.hpp"
 
 using namespace std;
 
@@ -30,8 +30,8 @@ class Board {
     //To Do US Versus Nordic Countries
     if(chooseMap == 1)
       modeUS();
-    else if(chooseMap == 2)
-       modeNordic();
+    //else if(chooseMap == 2)
+       //modeNordic();
     else { cout << "That's not a prompt!" << endl;}
 
   }
@@ -51,7 +51,7 @@ class Board {
  
   }
 
-
+/*
 
   void modeNordic(){
     //create Nordic Map
@@ -66,7 +66,7 @@ class Board {
     theTicketDeck.shuffle();
 
   }
-
+*/
 
   void clearBoard(){
     //reset board

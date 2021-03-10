@@ -251,7 +251,7 @@ class NordicMap : public Map{
   
   //claimed the route return 
   addScore(allRoutes[index]->requiredTrains);
-  }
+ }
 
   int addScore(int cars){
     cout << "Cars in addScore()"<< cars << endl;

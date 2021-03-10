@@ -230,7 +230,7 @@ class USMap : public Map{
               //claim path 1
               cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << " for " << addScore(allRoutes[index]->requiredTrains) << " points." << endl;
               allRoutes[index]->claimPath(thePlayer, 1);
-
+              return addScore(allRoutes[index]->requiredTrains);
               //return addScore((int)allRoutes[index]->requiredTrains);
               //stub
               cout << "End Claim Routes Color 1" << endl;
@@ -243,7 +243,7 @@ class USMap : public Map{
 
              cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << "for " << addScore(allRoutes[index]->requiredTrains) << "points" << endl;
               allRoutes[index]->claimPath(thePlayer, 2);
-
+              return addScore(allRoutes[index]->requiredTrains);
                
                //addScore((int)allRoutes[index]->requiredTrains);
             cout << "End Claim Routes Color 2" << endl;
@@ -261,7 +261,7 @@ class USMap : public Map{
   }
 
   int addScore(int cars){
-    cout << "Cars in addScore()"<< cars << endl;
+    //cout << "Cars in addScore()"<< cars << endl;
     if(cars==1){
       return 1;
     }else if(cars==2){
