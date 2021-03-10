@@ -23,7 +23,6 @@
  Board games are fun programs with a lot of interaction. One needs to deconstruct rules and apply computer science concepts and patterns. There is potential for many added features to add to aiding in user experience. Also, it’s pretty lonely during covid and it would be nice to play our favorite board games with other people.
  #### Languages and Technologies (This list may change over the course of the project)
 * Languages: C++
-* Tools: [SFML](https://www.sfml-dev.org/) - GUI Library
 
 * What will be the input/output of your project?
     * Input: 
