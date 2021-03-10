@@ -213,17 +213,17 @@ class USMap : public Map{
 
  int claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
     int index = findRoute(myCityA, myCityB, color);
-    cout << "Start Claim Routes" << endl;
+
 
         if(index==-1)
         {
-          cout << "Not Valid Route" << endl;
+          cout << "Not Valid Route: -1  index" << endl;
           return 0;
         }else{
           //Check Color
           if(allRoutes[index]->getColor1() != color && allRoutes[index]->getColor2() != color){
               // wrong color
-              cout << "Not Valid Color" << endl;
+              cout << "Not Valid Color." << endl;
               return 0;
           }else{
             if(allRoutes[index]->getColor1() == color && allRoutes[index]->pathOne != 0){
@@ -245,7 +245,7 @@ class USMap : public Map{
               allRoutes[index]->claimPath(thePlayer, 2);
 
                
-               //addScore((int)allRoutes[index]->requiredTrains);
+            
             cout << "End Claim Routes Color 2" << endl;
                //stub
                return 1;
@@ -255,7 +255,7 @@ class USMap : public Map{
         }
         
   
-  cout << "End Claim Routes" << endl;
+
   //claimed the route return stub - also did not have
   return 0;
   }
