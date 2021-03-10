@@ -138,10 +138,7 @@ class TicketDeck : public Deck<Tickets> {
 
     }
 
-		//To Do: Ashley
-		void resetDeck(){
-		//delete all objects in vector
-		//call create deck function
+	void resetDeck(){
 
 		ticketDeck.clear();
 

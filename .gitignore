@@ -16,7 +16,6 @@ city.hpp.gch
 .vscode/*
 project
 ticketDeck
-ticketMain.cpp
 trainDeck
 
 Makefile

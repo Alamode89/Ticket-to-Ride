@@ -13,28 +13,33 @@ int main(int argc, char *argv[]) {
     TrainDeck deck;
      deck.createDeck();
 
-    //no pointers - ?
-    //  //deck => vector <card> => look at top (card) => getName()
-    // cout << deck.trainDeck.size() << endl;
-
-    // TrainCard temp = deck.trainDeck.at(0);
-    
-    // string whatever = temp.colorName;
-    // string whatever2 = temp.getColorName();
-    
-    // cout << whatever << endl;
-    // cout << whatever2 << endl;
-
-    //pointers
     cout << deck.trainDeck.size() << endl;
-    //deck.shuffle(deck.trainDeck);
     cout << deck.trainDeck[0].getColorName() << endl;
-    cout << deck.trainDeck[0].colorName << endl;
-    cout << deck.trainDeck.size() << endl;
+    //cout << deck.trainDeck[0].colorName << endl;
+    cout << endl;
+    //should output 110, red
+
+    //cout << deck.trainDeck.size() << endl;
     cout << deck.trainDeck[24].getColorName() << endl;
-    cout << deck.trainDeck[24].colorName << endl;
+    //cout << deck.trainDeck[24].colorName << endl;
+    cout << endl;
+    //should output yellow
 
+    deck.shuffle(); //test first shuffle
+    cout << deck.trainDeck[0].getColorName() << endl;
+    //cout << deck.trainDeck[0].colorName << endl;
+    cout << endl;
+    //should output different color train card from before shuffling deck at index 0
 
+    deck.shuffle(); //testing second shuffle
+    cout << deck.trainDeck[0].getColorName() << endl;
+    cout << endl;
+    //should output different color train card from before shuffling deck a second time
+    //at index 0
+
+    //initial check to see if code compiles
     cout << "compiled" << endl;
+    cout << endl;
+
     return 0;
 }
