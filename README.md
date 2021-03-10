@@ -86,7 +86,6 @@ TicketDeck: The TicketDeck contains TrainCard objects which the players may choo
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA-->
 ## Class Diagram
 <!--  Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). -->
- Do not rely on graph image look at updated URL!: https://docs.google.com/drawings/d/1xwy_5ug9MwIFoDz2D0D283swFweGSGs6__eebdgE7TM/edit
 ![example class diagram](https://user-images.githubusercontent.com/57247550/110597267-293c4e80-8135-11eb-974a-0517b0a42732.png?raw=true)
 <!--
 ## Phase III
