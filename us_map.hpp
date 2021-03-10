@@ -261,7 +261,7 @@ class USMap : public Map{
   }
 
   int addScore(int cars){
-    cout << "Cars in addScore()"<< cars << endl;
+    cout << "Cars added to route: "<< cars << endl;
     if(cars==1){
       return 1;
     }else if(cars==2){
