@@ -165,5 +165,7 @@ class Player { //does not inherit from the game - please change - Liberty
 	}
 
 	string getName() const { return name; }
+	
+	string getColor() const { return myColor; }
 };
 #endif //__PLAYER_HPP__
