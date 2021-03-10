@@ -43,14 +43,17 @@ class Game {
 
   void playGame() {
     //going to need a way to loop through again until the game obj is done
-    //bool gameOver = false;
-    // while(!gameOver) {
+    bool gameOver = false;
+    while(!gameOver) {
       for(int i = 0; i < thePlayers.size(); i++) {
         cout << "It's " << thePlayers.at(i).getName() << "'s turn!" << endl;
         thePlayers.at(i).takeTurn(theBoard);
-        //if game over, make false
+        if(thePlayers.at(i).getScore() == 5) {
+          gameOver = true;
+          cout << "The Game is ending! All remaining players will take their final turn!" << endl;
+        }
       }
-    //}
+    }
   }
 
   int calculateHighScore(){
@@ -61,6 +64,12 @@ class Game {
       }
     } 
     return highestScore;
+  }
+
+  void theWinner() {
+    int winningPlayer;
+    winningPlayer = calculateHighScore();
+    cout << thePlayers.at(winningPlayer).getName() << " has won the game!" << endl;
   }
 
 
