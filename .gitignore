@@ -21,6 +21,5 @@ trainDeck
 Makefile
 CMakeCache.txt
 cmake_install.cmake
-googletest/
 lib/
 CMakeFiles/
