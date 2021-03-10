@@ -1,11 +1,12 @@
 #ifndef __US_MAP_HPP__
 #define __US_MAP_HPP__
 
+class Player;
 #include <vector>
 #include "city.hpp"
 #include "map.hpp"
 #include "route.hpp"
-#include "player.hpp"
+
 //#include <SFML/Graphics.hpp>
 
 using namespace std;
@@ -165,8 +166,15 @@ class USMap : public Map{
 
   bool isOccupied(string startA, string startB, string color){
       //check if a route is occupied
-
-      return 0;
+      int index=findRoute(startA, startB,color);
+      if (index >= 0){
+        if(allRoutes[index]->color1==color){
+          return allRoutes[index]->isOccupiedOne();
+        }else if (allRoutes[index]->color1==color){
+          return allRoutes[index]->isOccupiedTwo();
+        }
+      }
+      return true;
   }
 
   // Route* getRoute(string startCity, string endCity, string color){
@@ -203,55 +211,53 @@ class USMap : public Map{
   //     return temp;
   // }
 
-  void claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
-    bool check = false;
+ int claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
     int index = findRoute(myCityA, myCityB, color);
-    //To Do: Check Cards (number and correct color)
+    cout << "Start Claim Routes" << endl;
 
-
-    //To Do: Check Route Not Occupied
-      if(check == true){
-        ///throw error
-        cout << "Route Occupied/Failed" << endl;
-
-      }else{
-
-        if( index==-1)
+        if(index==-1)
         {
-          //throw error - no route
+          cout << "Not Valid Route" << endl;
+          return 0;
         }else{
           //Check Color
           if(allRoutes[index]->getColor1() != color && allRoutes[index]->getColor2() != color){
-              //throw error - wrong color
+              // wrong color
+              cout << "Not Valid Color" << endl;
+              return 0;
           }else{
             if(allRoutes[index]->getColor1() == color && allRoutes[index]->pathOne != 0){
               //claim path 1
-
-      // cout << thePlayer->getName();
-      cout << "claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << " for " << addScore(allRoutes[index]->requiredTrains) << " points." << endl;
-
-      //add score to player
-      //Player->setScore(addScore(allRoutes[index]->requiredTrains));
-
+              cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << " for " << addScore(allRoutes[index]->requiredTrains) << " points." << endl;
               allRoutes[index]->claimPath(thePlayer, 1);
 
-            }else if(allRoutes[index]->getColor2() == color){
+              //return addScore((int)allRoutes[index]->requiredTrains);
+              //stub
+              cout << "End Claim Routes Color 1" << endl;
+              return 1;
+
+            }else if( allRoutes[index]->getColor2() == color){
               //claim path 2
+             
 
-      // cout << thePlayer->nameName() << "has a total of "
-      cout << "claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << "for " << addScore(allRoutes[index]->requiredTrains) << "points" << endl;
 
+             cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << "for " << addScore(allRoutes[index]->requiredTrains) << "points" << endl;
               allRoutes[index]->claimPath(thePlayer, 2);
 
-      //add score to player
-      //Player->setScore(addScore(allRoutes[index]->requiredTrains));
+               
+               //addScore((int)allRoutes[index]->requiredTrains);
+            cout << "End Claim Routes Color 2" << endl;
+               //stub
+               return 1;
             }
             
           }
         }
-    }
+        
   
-  //claim the route
+  cout << "End Claim Routes" << endl;
+  //claimed the route return stub - also did not have
+  return 0;
   }
 
   int addScore(int cars){
@@ -280,7 +286,7 @@ class USMap : public Map{
   
 
   int findRoute(string cityA, string cityB, string color){
-    cout << "Find Route" << endl;
+    cout << "Finding Route..." << endl;
     for(int i=0; i < allRoutes.size(); ++i){
         if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
           return i;
@@ -292,49 +298,49 @@ class USMap : public Map{
     return -1;
   }
 
-  int findPathX(string cityA, string cityB, string color){
-  cout << "Find X: ";
-  //return X position of a route
-    for(int i=0; i < allRoutes.size(); ++i){
-        if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
-          if(allRoutes[i]->color1 == color){
-          cout << allRoutes[i]->xPos1 <<endl;
-          return allRoutes[i]->xPos1;
-        }
+  // int findPathX(string cityA, string cityB, string color){
+  // cout << "Find X: ";
+  // //return X position of a route
+  //   for(int i=0; i < allRoutes.size(); ++i){
+  //       if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
+  //         if(allRoutes[i]->color1 == color){
+  //         cout << allRoutes[i]->xPos1 <<endl;
+  //         return allRoutes[i]->xPos1;
+  //       }
 
-        if(allRoutes[i]->color2 == color){
-          cout << allRoutes[i]->xPos2 <<endl;
-          return allRoutes[i]->xPos2;
-        }
-        }
-    }
-        cout << "none - no city error - outside if statement" <<endl;
-    //no city
-    return -1;
-  }
+  //       if(allRoutes[i]->color2 == color){
+  //         cout << allRoutes[i]->xPos2 <<endl;
+  //         return allRoutes[i]->xPos2;
+  //       }
+  //       }
+  //   }
+  //       cout << "none - no city error - outside if statement" <<endl;
+  //   //no city
+  //   return -1;
+  // }
 
-  int findPathY(string cityA, string cityB, string color){
-    cout << "Find y- City A: " << cityA <<endl;
-    cout << "Find y- City B: " << cityB <<endl;
-    cout << "Find y- Color: " << color <<endl;
-  //return y position of a route
-  cout << "Find Y: ";
-    for(int i=0; i < allRoutes.size(); ++i){
-        if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
-          if(allRoutes[i]->color1 == color){
-              cout << allRoutes[i]->yPos1 <<endl;
-              return allRoutes[i]->yPos1;
-          }
-          if(allRoutes[i]->color2 == color){
-              cout << allRoutes[i]->yPos1 <<endl;
-              return allRoutes[i]->yPos2;
-          }
-        }
-    }
-        cout << "none - no city error - outside if statement" <<endl;
-    //no city
-    return -1;
-  }
+  // int findPathY(string cityA, string cityB, string color){
+  //   cout << "Find y- City A: " << cityA <<endl;
+  //   cout << "Find y- City B: " << cityB <<endl;
+  //   cout << "Find y- Color: " << color <<endl;
+  // //return y position of a route
+  // cout << "Find Y: ";
+  //   for(int i=0; i < allRoutes.size(); ++i){
+  //       if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
+  //         if(allRoutes[i]->color1 == color){
+  //             cout << allRoutes[i]->yPos1 <<endl;
+  //             return allRoutes[i]->yPos1;
+  //         }
+  //         if(allRoutes[i]->color2 == color){
+  //             cout << allRoutes[i]->yPos1 <<endl;
+  //             return allRoutes[i]->yPos2;
+  //         }
+  //       }
+  //   }
+  //       cout << "none - no city error - outside if statement" <<endl;
+  //   //no city
+  //   return -1;
+  // }
 
 
   void resetMap(){
@@ -370,9 +376,7 @@ class USMap : public Map{
 
   }
 
-  void drawMap(){
 
-  }
 
 };
 
