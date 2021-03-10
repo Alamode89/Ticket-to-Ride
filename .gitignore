@@ -1,4 +1,5 @@
-
+play
+test
 board.hpp.gch
 deck.hpp.gch
 game.hpp.gch
@@ -17,3 +18,10 @@ project
 ticketDeck
 ticketMain.cpp
 trainDeck
+
+Makefile
+CMakeCache.txt
+cmake_install.cmake
+googletest/
+lib/
+CMakeFiles/
