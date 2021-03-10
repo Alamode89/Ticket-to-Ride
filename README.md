@@ -86,8 +86,7 @@ TicketDeck: The TicketDeck contains TrainCard objects which the players may choo
  >   * These cards should represent roughly 7 days worth of development time for your team, taking you until your first meeting with the TA-->
 ## Class Diagram
 <!--  Include a class diagram(s) for each design pattern and a description of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper OMT notation (as discussed in the course slides). You may combine multiple design patterns into one diagram if you'd like, but it needs to be clear which portion of the diagram represents which design pattern (either in the diagram or in the description). -->
- Do not rely on graph image look at updated URL!: https://docs.google.com/drawings/d/1xwy_5ug9MwIFoDz2D0D283swFweGSGs6__eebdgE7TM/edit
-![example class diagram](https://github.com/cs100/final-project-aaman009-akim291-llocs001/blob/master/ClassDiagram.png?raw=true)
+![example class diagram](https://user-images.githubusercontent.com/57247550/110598743-f4c99200-8136-11eb-8c87-be5fd311cff2.png?raw=true)
 <!--
 ## Phase III
  > You will need to schedule a check-in with the TA (during lab hours or office hours). Your entire team must be present. 
@@ -105,9 +104,12 @@ TicketDeck: The TicketDeck contains TrainCard objects which the players may choo
  > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Kanban board. 
   -->
  ## Screenshots
- > Screenshots of the input/output after running your application
+ ![program screenshot 1](https://user-images.githubusercontent.com/57247550/110593571-98637400-8130-11eb-8004-d7b7f601444c.png?raw=true)
+ ![program screenshot 2](https://user-images.githubusercontent.com/57247550/110593703-c2b53180-8130-11eb-803b-ff169b1adb5b.png?raw=true)
+ ![program screenshot 3](https://user-images.githubusercontent.com/57247550/110593849-f1cba300-8130-11eb-8a24-99be0c363d9b.png?raw=true)
+![program screenshot 4](https://user-images.githubusercontent.com/57247550/110593992-1de72400-8131-11eb-8fd1-a60a168b0c73.png?raw=true)
  ## Installation/Usage
- > Instructions on installing and running your application
+ To install this program, open your local terminal and clone this repository recursively (`git clone --recursive <repository link>`)(the <> indicate the repository link). Once cloned, run `cmake3 .` to create the MakeFile, and then `make` to compile the code. To execute, run the command `./play` to run the program. Any changes to source code requires another "make" command to compile before running `./play`.
  ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
+ This project was tested using googletest as well as specific .cpp files. The file, test.cpp, would run all unit test files marked with .hpp by running `./test`. The .cpp files must be tested individually and are compiled by running `g++ -o exampleTest <filename>.cpp` and then running `./exampleTest` (the <> indicates the name of the .cpp that needs to be compiled and tested).
 

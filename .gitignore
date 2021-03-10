@@ -16,12 +16,10 @@ city.hpp.gch
 .vscode/*
 project
 ticketDeck
-ticketMain.cpp
 trainDeck
 
 Makefile
 CMakeCache.txt
 cmake_install.cmake
-googletest/
 lib/
 CMakeFiles/

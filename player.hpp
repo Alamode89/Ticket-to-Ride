@@ -116,6 +116,7 @@ class Player { //does not inherit from the game - please change - Liberty
 
 			if(userChoice == "3") {
 				isPlayerTurn = false;  
+				int newPoints;
 				string cityOne;
 				string cityTwo;
 				string inputColor;
@@ -159,7 +160,7 @@ class Player { //does not inherit from the game - please change - Liberty
 			  //int index = aBoard.myMap->findRoute("New Orleans", "Atlanta", "yellow"); //test stub
 
 				int numCardsToRemove=aBoard.myMap->allRoutes[index]->requiredTrains;
-				cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
+				//cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
 				myHand.display(myHand.trainDeck);
 				for(int i = 0; i < myHand.trainDeck.size(); i++) {
 					if(myHand.trainDeck.at(i).getColorName() == inputColor) {
@@ -189,9 +190,8 @@ class Player { //does not inherit from the game - please change - Liberty
 	return myCars;
 	}
 
-	int addScore(int points){
-		//myScore += points;
-		return myScore + points;
+	void addScore(int points){
+		myScore += points;
 	}
 
 	int getScore() const {

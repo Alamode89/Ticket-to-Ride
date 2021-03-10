@@ -6,6 +6,7 @@ class Player;
 #include "city.hpp"
 #include "map.hpp"
 #include "route.hpp"
+#include <iostream>
 //#include <SFML/Graphics.hpp>
 
 using namespace std;
@@ -160,6 +161,7 @@ class NordicMap : public Map{
 
   bool isOccupied(string startA, string startB, string color){
       //check if a route is occupied
+      cout << "Route Occupied" << endl;
       int index=findRoute(startA, startB,color);
       if (index >= 0){
         if(allRoutes[index]->color1==color){
@@ -206,28 +208,28 @@ class NordicMap : public Map{
   // }
 
  int claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
+   cout << "Claim Route:" << endl;
     int index = findRoute(myCityA, myCityB, color);
-    cout << "Start Claim Routes" << endl;
 
         if(index==-1)
         {
-          cout << "Not Valid Route" << endl;
+          cout << "Not Valid Route: -1  index" << endl;
           return 0;
         }else{
           //Check Color
           if(allRoutes[index]->getColor1() != color && allRoutes[index]->getColor2() != color){
               // wrong color
-              cout << "Not Valid Color" << endl;
+              cout << "Not Valid Color." << endl;
               return 0;
           }else{
             if(allRoutes[index]->getColor1() == color && allRoutes[index]->pathOne != 0){
               //claim path 1
               cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << " for " << addScore(allRoutes[index]->requiredTrains) << " points." << endl;
               allRoutes[index]->claimPath(thePlayer, 1);
-
+              return addScore(allRoutes[index]->requiredTrains);
               //return addScore((int)allRoutes[index]->requiredTrains);
               //stub
-              cout << "End Claim Routes Color 1" << endl;
+             // cout << "End Claim Routes Color 1" << endl;
               return 1;
 
             }else if( allRoutes[index]->getColor2() == color){
@@ -237,9 +239,9 @@ class NordicMap : public Map{
 
              cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << "for " << addScore(allRoutes[index]->requiredTrains) << "points" << endl;
               allRoutes[index]->claimPath(thePlayer, 2);
-
+              return addScore(allRoutes[index]->requiredTrains);
                
-               //addScore((int)allRoutes[index]->requiredTrains);
+            
             cout << "End Claim Routes Color 2" << endl;
                //stub
                return 1;
@@ -249,7 +251,6 @@ class NordicMap : public Map{
         }
         
   
-  cout << "End Claim Routes" << endl;
   //claimed the route return stub - also did not have
   return 0;
   }
@@ -280,7 +281,7 @@ class NordicMap : public Map{
   
 
   int findRoute(string cityA, string cityB, string color){
-    cout << "Finding Route..." << endl;
+    //cout << "Finding Route..." << endl;
     for(int i=0; i < allRoutes.size(); ++i){
         if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
           return i;
