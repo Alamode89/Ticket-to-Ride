@@ -138,8 +138,10 @@ class Player { //does not inherit from the game - please change - Liberty
 						break;
 					}
 				}
+				cout << endl;
 				cout << "Your new hand of Train Cards" << endl;
 				myHand.display(myHand.trainDeck);
+				cout << endl;
 			}
 
 			if(userChoice == "4") {
@@ -156,6 +158,7 @@ class Player { //does not inherit from the game - please change - Liberty
 	}
 
 	int addScore(int points){
+		//myScore += points;
 		return myScore + points;
 	}
 
