@@ -90,11 +90,6 @@ class Route {
     requiredTrains=trainCards;
   }
 
-
-//To Do: Delete?
-  void setClaim(Player* aPlayer){
-
-   }
   bool checkRoute(string A, string B){
     bool isThisMyRoute=0;
       

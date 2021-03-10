@@ -124,12 +124,13 @@ class Player { //does not inherit from the game - please change - Liberty
 				cin >> cityTwo;
 				cin >> inputColor;
 
-				///int points = aBoard.myMap->claimRoute(this, cityOne, cityTwo, inputColor); // string error? <-thought this might work, but buggy
-				int point = aBoard.myMap->claimRoute(this, "Helena", "Seattle", "yellow"); //string error?
 
+				int point = aBoard.myMap->claimRoute(this, cityOne, cityTwo, inputColor); // string error? <-thought this might work, but buggy
+				//int point = aBoard.myMap->claimRoute(this, "New Orleans", "Atlanta", "yellow"); //string error?
+				addScore(point);
 
-			  int index = aBoard.myMap->findRoute("Helena", "Seattle", "yellow"); //test stub
-				//int index = aBoard.myMap->findRoute(cityOne, cityTwo, inputColor); //
+			  //int index = aBoard.myMap->findRoute("New Orleans", "Atlanta", "yellow"); //test stub
+				int index = aBoard.myMap->findRoute(cityOne, cityTwo, inputColor); //
 				int numCardsToRemove=aBoard.myMap->allRoutes[index]->requiredTrains;
 				cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
 				myHand.display(myHand.trainDeck);

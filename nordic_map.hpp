@@ -206,55 +206,56 @@ class NordicMap : public Map{
   // }
 
  int claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
-    bool check = false;
     int index = findRoute(myCityA, myCityB, color);
+    cout << "Start Claim Routes" << endl;
 
-      if(check == true){
-        ///throw error
-        cout << "Route Occupied/Failed" << endl;
-
-      }else{
-
-        if( index==-1)
+        if(index==-1)
         {
-          return -1;
+          cout << "Not Valid Route" << endl;
+          return 0;
         }else{
           //Check Color
           if(allRoutes[index]->getColor1() != color && allRoutes[index]->getColor2() != color){
-              //throw error - wrong color
+              // wrong color
+              cout << "Not Valid Color" << endl;
+              return 0;
           }else{
             if(allRoutes[index]->getColor1() == color && allRoutes[index]->pathOne != 0){
-              //Claim path 1
-
-
-      cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << " for " << addScore(allRoutes[index]->requiredTrains) << " points." << endl;
-
-
-
+              //claim path 1
+              cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << " for " << addScore(allRoutes[index]->requiredTrains) << " points." << endl;
               allRoutes[index]->claimPath(thePlayer, 1);
 
-            }else if(allRoutes[index]->getColor2() == color){
-              //Claim path 2
+              //return addScore((int)allRoutes[index]->requiredTrains);
+              //stub
+              cout << "End Claim Routes Color 1" << endl;
+              return 1;
 
-      // cout << thePlayer->nameName() << "has a total of "
-      cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << "for " << addScore(allRoutes[index]->requiredTrains) << "points" << endl;
+            }else if( allRoutes[index]->getColor2() == color){
+              //claim path 2
+             
 
+
+             cout << "Claim route from " << allRoutes[index]->getCity1()->getName() << " to " << allRoutes[index]->getCity2()->getName() << "for " << addScore(allRoutes[index]->requiredTrains) << "points" << endl;
               allRoutes[index]->claimPath(thePlayer, 2);
 
-
+               
+               //addScore((int)allRoutes[index]->requiredTrains);
+            cout << "End Claim Routes Color 2" << endl;
+               //stub
+               return 1;
             }
             
           }
         }
         
-    }
   
-  //claimed the route return 
-  addScore(allRoutes[index]->requiredTrains);
+  cout << "End Claim Routes" << endl;
+  //claimed the route return stub - also did not have
+  return 0;
   }
 
   int addScore(int cars){
-    cout << "Cars in addScore()"<< cars << endl;
+    cout << "Cars added to route: "<< cars << endl;
     if(cars==1){
       return 1;
     }else if(cars==2){
@@ -279,6 +280,7 @@ class NordicMap : public Map{
   
 
   int findRoute(string cityA, string cityB, string color){
+    cout << "Finding Route..." << endl;
     for(int i=0; i < allRoutes.size(); ++i){
         if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
           return i;
@@ -290,49 +292,49 @@ class NordicMap : public Map{
     return -1;
   }
 
-  int findPathX(string cityA, string cityB, string color){
-  cout << "Find X: ";
-  //return X position of a route
-    for(int i=0; i < allRoutes.size(); ++i){
-        if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
-          if(allRoutes[i]->color1 == color){
-          cout << allRoutes[i]->xPos1 <<endl;
-          return allRoutes[i]->xPos1;
-        }
+  // int findPathX(string cityA, string cityB, string color){
+  // cout << "Find X: ";
+  // //return X position of a route
+  //   for(int i=0; i < allRoutes.size(); ++i){
+  //       if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
+  //         if(allRoutes[i]->color1 == color){
+  //         cout << allRoutes[i]->xPos1 <<endl;
+  //         return allRoutes[i]->xPos1;
+  //       }
 
-        if(allRoutes[i]->color2 == color){
-          cout << allRoutes[i]->xPos2 <<endl;
-          return allRoutes[i]->xPos2;
-        }
-        }
-    }
-        cout << "none - no city error - outside if statement" <<endl;
-    //no city
-    return -1;
-  }
+  //       if(allRoutes[i]->color2 == color){
+  //         cout << allRoutes[i]->xPos2 <<endl;
+  //         return allRoutes[i]->xPos2;
+  //       }
+  //       }
+  //   }
+  //       cout << "none - no city error - outside if statement" <<endl;
+  //   //no city
+  //   return -1;
+  // }
 
-  int findPathY(string cityA, string cityB, string color){
-    cout << "Find y- City A: " << cityA <<endl;
-    cout << "Find y- City B: " << cityB <<endl;
-    cout << "Find y- Color: " << color <<endl;
-  //return y position of a route
-  cout << "Find Y: ";
-    for(int i=0; i < allRoutes.size(); ++i){
-        if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
-          if(allRoutes[i]->color1 == color){
-              cout << allRoutes[i]->yPos1 <<endl;
-              return allRoutes[i]->yPos1;
-          }
-          if(allRoutes[i]->color2 == color){
-              cout << allRoutes[i]->yPos1 <<endl;
-              return allRoutes[i]->yPos2;
-          }
-        }
-    }
-        cout << "none - no city error - outside if statement" <<endl;
-    //no city
-    return -1;
-  }
+  // int findPathY(string cityA, string cityB, string color){
+  //   cout << "Find y- City A: " << cityA <<endl;
+  //   cout << "Find y- City B: " << cityB <<endl;
+  //   cout << "Find y- Color: " << color <<endl;
+  // //return y position of a route
+  // cout << "Find Y: ";
+  //   for(int i=0; i < allRoutes.size(); ++i){
+  //       if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
+  //         if(allRoutes[i]->color1 == color){
+  //             cout << allRoutes[i]->yPos1 <<endl;
+  //             return allRoutes[i]->yPos1;
+  //         }
+  //         if(allRoutes[i]->color2 == color){
+  //             cout << allRoutes[i]->yPos1 <<endl;
+  //             return allRoutes[i]->yPos2;
+  //         }
+  //       }
+  //   }
+  //       cout << "none - no city error - outside if statement" <<endl;
+  //   //no city
+  //   return -1;
+  // }
 
 
   void resetMap(){
@@ -343,20 +345,7 @@ class NordicMap : public Map{
     addCities();
   }
 
-  void deleteRoutes(){
-    for (Route* obj : allRoutes)
-        delete obj;
 
-    allRoutes.clear();
-  }
-
-  void deleteCities(){
-    //for loop delete all cities object pointer
-    for(int i=0; i < destinations.size(); ++i){
-      delete destinations.at(i);
-    }
-
-  }
 
   void printMap(){
     cout << "Available Routes: "<< endl;
