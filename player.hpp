@@ -85,6 +85,7 @@ class Player { //does not inherit from the game - please change - Liberty
 		//1. make one of three turns
 			std::cin >> userChoice;
 			std::cout << std::endl;
+			cin.ignore(1000, '\n');
 		
 			if(userChoice == "1") {
 				//train row -
@@ -120,16 +121,46 @@ class Player { //does not inherit from the game - please change - Liberty
 				string cityTwo;
 				string inputColor;
 				aBoard.myMap->printMap();
-				cout << "Claim a route! Enter the first city, then the second, then the color!" << endl;
-				cin >> cityOne;
-				cin >> cityTwo;
-				cin >> inputColor;
-				newPoints = aBoard.myMap->claimRoute(this, cityOne, cityTwo, inputColor);
-				//get cards
-				addScore(newPoints);
-				cout << getName() << " has " << getScore() << " point(s)!" << endl; 
-				int numCardsToRemove = aBoard.myMap->allRoutes[aBoard.myMap->findRoute(cityOne, cityTwo, inputColor)]->requiredTrains;
-			//	cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
+
+				int index=-1;
+				bool stringInputCheckers=false;
+				
+				while(!(stringInputCheckers)){
+					aBoard.myMap->printMap();
+					cout << "Claim a route! Enter the first city, then the second, then the color!" << endl;
+					cin.clear();
+					getline(cin, cityOne, '\n');
+					cout << cityOne << endl;
+;
+					cin.clear();
+					
+					getline(cin, cityTwo, '\n');
+					cout << cityTwo << endl;
+
+					cin.clear();
+					
+					getline(cin, inputColor, '\n');
+					cout << inputColor << endl;
+
+					cin.clear();
+
+					cout << endl;
+
+					//Is it a valid route?
+					if(!aBoard.myMap->isOccupied(cityOne, cityTwo, inputColor)){
+						index = aBoard.myMap->findRoute(cityOne, cityTwo, inputColor); //
+						stringInputCheckers=true;
+					}
+				}
+
+				int point = aBoard.myMap->claimRoute(this, cityOne, cityTwo, inputColor); // string error? <-thought this might work, but buggy
+				//int point = aBoard.myMap->claimRoute(this, "New Orleans", "Atlanta", "yellow"); //string error?
+				addScore(point);
+
+			  //int index = aBoard.myMap->findRoute("New Orleans", "Atlanta", "yellow"); //test stub
+
+				int numCardsToRemove=aBoard.myMap->allRoutes[index]->requiredTrains;
+				//cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
 				myHand.display(myHand.trainDeck);
 				for(int i = 0; i < myHand.trainDeck.size(); i++) {
 					if(myHand.trainDeck.at(i).getColorName() == inputColor) {

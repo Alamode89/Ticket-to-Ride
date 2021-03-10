@@ -7,8 +7,6 @@
 using namespace std;
 
 class City {
-    //int nodeNumber?
-    //City Name
     public: 
       string destinationName;
       //vector <Route*> myRoutes;
