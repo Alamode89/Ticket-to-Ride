@@ -32,22 +32,23 @@ void doClassesRun(){
 }
 
 int main(){
-  doClassesRun();
-  cout << "Start Program" << endl;
+  //doClassesRun();
+  //cout << "Start Program" << endl;
   //Testing Classes
   // City* myCityA = new City("Vancouver");
   // City* myCityB = new City("Seattle");
   
 
-  TrainCard myTrainCard; 
+  //TrainCard myTrainCard; 
   // Route *myRoute = new Route(myCityA, myCityB, 1, "grey", "grey", 96, 131, 121, 130);
 
   
   Board myBoard;
   Game theGame;
+  int winningPlayer = 0;
   theGame.newGame();
   theGame.playGame();
-
+  theGame.theWinner();
 
   cout << "End Program" << endl;
 
