@@ -48,7 +48,7 @@ class Game {
       for(int i = 0; i < thePlayers.size(); i++) {
         cout << "It's " << thePlayers.at(i).getName() << "'s turn!" << endl;
         thePlayers.at(i).takeTurn(theBoard);
-        if(thePlayers.at(i).getScore() == 5) {
+        if(thePlayers.at(i).getScore() >= 5) {
           gameOver = true;
           cout << "The Game is ending! All remaining players will take their final turn!" << endl;
         }

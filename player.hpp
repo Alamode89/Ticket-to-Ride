@@ -127,9 +127,9 @@ class Player { //does not inherit from the game - please change - Liberty
 				newPoints = aBoard.myMap->claimRoute(this, cityOne, cityTwo, inputColor);
 				//get cards
 				addScore(newPoints);
-				cout << getName() << " has " << getScore() << " points!" << endl; 
+				cout << getName() << " has " << getScore() << " point(s)!" << endl; 
 				int numCardsToRemove = aBoard.myMap->allRoutes[aBoard.myMap->findRoute(cityOne, cityTwo, inputColor)]->requiredTrains;
-				cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
+			//	cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
 				myHand.display(myHand.trainDeck);
 				for(int i = 0; i < myHand.trainDeck.size(); i++) {
 					if(myHand.trainDeck.at(i).getColorName() == inputColor) {
