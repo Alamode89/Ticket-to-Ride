@@ -213,7 +213,7 @@ class USMap : public Map{
 
  int claimRoute(Player *thePlayer, string myCityA, string myCityB, string color){
     int index = findRoute(myCityA, myCityB, color);
-    cout << "Start Claim Routes" << endl;
+   // cout << "Start Claim Routes" << endl;
 
         if(index==-1)
         {
@@ -233,7 +233,7 @@ class USMap : public Map{
               return addScore(allRoutes[index]->requiredTrains);
               //return addScore((int)allRoutes[index]->requiredTrains);
               //stub
-              cout << "End Claim Routes Color 1" << endl;
+             // cout << "End Claim Routes Color 1" << endl;
               return 1;
 
             }else if( allRoutes[index]->getColor2() == color){
@@ -246,7 +246,7 @@ class USMap : public Map{
               return addScore(allRoutes[index]->requiredTrains);
                
                //addScore((int)allRoutes[index]->requiredTrains);
-            cout << "End Claim Routes Color 2" << endl;
+           // cout << "End Claim Routes Color 2" << endl;
                //stub
                return 1;
             }
@@ -255,7 +255,7 @@ class USMap : public Map{
         }
         
   
-  cout << "End Claim Routes" << endl;
+ // cout << "End Claim Routes" << endl;
   //claimed the route return stub - also did not have
   return 0;
   }
@@ -286,7 +286,7 @@ class USMap : public Map{
   
 
   int findRoute(string cityA, string cityB, string color){
-    cout << "Finding Route..." << endl;
+    //cout << "Finding Route..." << endl;
     for(int i=0; i < allRoutes.size(); ++i){
         if((allRoutes[i]->getCity1()->getName() == cityA && allRoutes[i]->getCity2()->getName() == cityB) || (allRoutes[i]->getCity1()->getName() == cityB && allRoutes[i]->getCity2()->getName() == cityA)){
           return i;

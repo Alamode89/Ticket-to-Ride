@@ -17,6 +17,7 @@
 
 using namespace std;
 
+/*
 void doClassesRun(){
   //Testing Classes
   City* myCityA = new City("Vancouver");
@@ -29,7 +30,7 @@ void doClassesRun(){
   Board myBoard;
   Game theGame;
   Player bob;
-}
+}*/
 
 int main(){
   //doClassesRun();
@@ -46,11 +47,12 @@ int main(){
   Board myBoard;
   Game theGame;
   int winningPlayer = 0;
+  cout << "Welcome to Ticket to Ride!" << endl;
   theGame.newGame();
   theGame.playGame();
   theGame.theWinner();
 
-  cout << "End Program" << endl;
+  //cout << "End Program" << endl;
 
   return 0;
 }
