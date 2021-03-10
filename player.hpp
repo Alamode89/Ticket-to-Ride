@@ -115,13 +115,31 @@ class Player { //does not inherit from the game - please change - Liberty
 
 			if(userChoice == "3") {
 				isPlayerTurn = false;  
+				string cityOne;
+				string cityTwo;
+				string inputColor;
 				aBoard.myMap->printMap();
-				aBoard.myMap->claimRoute(this, "Seattle", "Helena", "yellow");
+				cout << "Claim a route! Enter the first city, then the second, then the color!" << endl;
+				cin >> cityOne;
+				cin >> cityTwo;
+				cin >> inputColor;
+				aBoard.myMap->claimRoute(this, cityOne, cityTwo, inputColor);
 				//get cards
 
-				int numCardsToRemove=aBoard.myMap->allRoutes[aBoard.myMap->findRoute("Seattle", "Helena", "yellow")]->requiredTrains;
-				cout << "Trains Required/Remove this Number cards from deck:" << numCardsToRemove << endl;
-	
+				int numCardsToRemove=aBoard.myMap->allRoutes[aBoard.myMap->findRoute(cityOne, cityTwo, inputColor)]->requiredTrains;
+				cout << "Trains Required/Remove this Number cards from deck: " << numCardsToRemove << endl;
+				myHand.display(myHand.trainDeck);
+				for(int i = 0; i < myHand.trainDeck.size(); i++) {
+					if(myHand.trainDeck.at(i).getColorName() == inputColor) {
+						myHand.trainDeck.erase(myHand.trainDeck.begin() + i);
+						--numCardsToRemove;
+					}
+					if(numCardsToRemove == 0) {
+						break;
+					}
+				}
+				cout << "Your new hand of Train Cards" << endl;
+				myHand.display(myHand.trainDeck);
 			}
 
 			if(userChoice == "4") {
